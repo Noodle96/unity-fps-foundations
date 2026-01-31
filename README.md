@@ -108,6 +108,23 @@ Integración de un arma al jugador y creación del sistema básico de disparo.
 
 ---
 
+### ✅ Capítulo 09 – Disparo con fuerza y colisiones
+Mejora del sistema de disparo incorporando física, cadencia y detección de colisiones.
+
+#### Características:
+- Aplicación de fuerza al proyectil usando `Rigidbody.AddForce`
+- Implementación de cadencia de disparo mediante control de tiempo
+- Destrucción automática del proyectil tras un tiempo definido
+- Detección de colisiones del proyectil
+- Uso de tags para identificar enemigos
+- Eliminación de enemigos al impacto del proyectil
+
+#### Scripts:
+- `Assets/Scripts/Weapon/Shot.cs`
+- `Assets/Scripts/Weapon/Bullet.cs`
+
+---
+
 ## 🛠️ Tecnologías utilizadas
 - Unity
 - C#
