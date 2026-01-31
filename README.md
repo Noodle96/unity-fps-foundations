@@ -125,6 +125,18 @@ Mejora del sistema de disparo incorporando física, cadencia y detección de col
 
 ---
 
+### ✅ Capítulo 10 – Animaciones básicas y NavMesh
+Introducción a animaciones simples y configuración inicial del sistema de navegación.
+
+#### Características:
+- Creación de una animación básica mediante el sistema de Animation de Unity
+- Animación de movimiento cíclico de un objeto en el eje Z
+- Introducción al sistema de navegación usando NavMesh
+- Configuración de `NavMeshSurface` sobre el piso con el área por defecto `Walkable`
+- Preparación del escenario para futura navegación de enemigos
+
+---
+
 ## 🛠️ Tecnologías utilizadas
 - Unity
 - C#
