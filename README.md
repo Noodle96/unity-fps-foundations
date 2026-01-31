@@ -60,6 +60,21 @@ Implementación del movimiento básico del Player utilizando `CharacterControlle
 
 ---
 
+### ✅ Capítulo 05 – Gravedad del jugador
+Extensión del sistema de movimiento para incluir gravedad manual utilizando `CharacterController`.
+
+#### Características:
+- Aplicación de gravedad sin uso de `Rigidbody`
+- Uso de una velocidad vertical acumulada (`velocity.y`)
+- Integración de la gravedad con `CharacterController.Move`
+- Separación entre movimiento horizontal y fuerza vertical
+- Uso de `Time.deltaTime` para una simulación consistente
+
+#### Script:
+- `Assets/Scripts/Player/PlayerMovement.cs`
+
+---
+
 ## 🛠️ Tecnologías utilizadas
 - Unity
 - C#
