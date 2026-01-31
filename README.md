@@ -75,6 +75,22 @@ Extensión del sistema de movimiento para incluir gravedad manual utilizando `Ch
 
 ---
 
+### ✅ Capítulo 06 – Salto y detección de suelo
+Implementación del sistema de salto y detección de contacto con el suelo utilizando físicas manuales.
+
+#### Características:
+- Detección de suelo mediante `Physics.CheckSphere`
+- Uso de `LayerMask` para identificar superficies caminables
+- Control del estado `isGrounded` para permitir el salto
+- Aplicación de fuerza de salto basada en la fórmula de movimiento vertical
+- Uso de una pequeña fuerza negativa para mantener al jugador pegado al suelo
+- Integración del salto con el sistema de gravedad manual
+
+#### Script:
+- `Assets/Scripts/Player/PlayerMovement.cs`
+
+---
+
 ## 🛠️ Tecnologías utilizadas
 - Unity
 - C#
