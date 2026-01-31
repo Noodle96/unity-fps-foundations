@@ -12,8 +12,13 @@ public class Shot : MonoBehaviour
 
     void Update()
     {
-        if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame) { 
-            GameObject newBullet = Instantiate(bullet, spawnPoint.position, spawnPoint.rotation);
+        if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame) {
+            if (Time.time > shotRateTime) { 
+                GameObject newBullet = Instantiate(bullet, spawnPoint.position, spawnPoint.rotation);
+                newBullet.GetComponent<Rigidbody>().AddForce(spawnPoint.forward * shotForce);
+                shotRateTime = Time.time + shotRate;
+                Destroy(newBullet, 5f); // Destroy bullet after 5 seconds
+            }
         }
         
     }
