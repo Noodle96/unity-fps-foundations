@@ -91,6 +91,23 @@ Implementación del sistema de salto y detección de contacto con el suelo utili
 
 ---
 
+### ✅ Capítulos 07 & 08 – Arma básica y sistema de disparo
+Integración de un arma al jugador y creación del sistema básico de disparo.
+
+#### Características:
+- Importación de un modelo de pistola desde el Asset Store
+- Posicionamiento y rotación manual del arma respecto al jugador
+- Arma configurada como hija de la cámara principal para seguir la vista del jugador
+- Creación de un `spawnPoint` en la punta del arma
+- Implementación de un sistema de disparo básico mediante instanciación de proyectiles
+- Creación de un proyectil simple usando una esfera con `SphereCollider` y `Rigidbody`
+- Uso del nuevo Input System para detectar el disparo con el botón izquierdo del mouse
+
+#### Script:
+- `Assets/Scripts/Weapon/Shot.cs`
+
+---
+
 ## 🛠️ Tecnologías utilizadas
 - Unity
 - C#
