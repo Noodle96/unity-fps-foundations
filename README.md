@@ -41,16 +41,22 @@ Implementación del sistema básico de cámara en primera persona.
 - Bloqueo del cursor para experiencia FPS
 
 #### Script principal:
-- `CameraLook.cs`
+- `Assets/Scripts/Camera/CameraLook.cs`
 
 ---
 
-## 🧠 Conceptos aprendidos hasta ahora
-- Diferencia entre rotación global y rotación local
-- Separación entre cámara y cuerpo del jugador
-- Importancia de limitar la rotación vertical en un FPS
-- Uso de materiales para mejorar la lectura visual del entorno
-- Organización inicial de una escena en Unity
+### ✅ Capítulo 04 – Movimiento del jugador
+Implementación del movimiento básico del Player utilizando `CharacterController`.
+
+#### Características:
+- Movimiento en los ejes horizontal y vertical
+- Movimiento relativo a la orientación del jugador
+- Uso de `transform.forward` y `transform.right`
+- Velocidad configurable
+- Movimiento independiente del frame rate (`Time.deltaTime`)
+
+#### Script:
+- `Assets/Scripts/Player/PlayerMovement.cs`
 
 ---
 
