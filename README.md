@@ -137,6 +137,20 @@ Introducción a animaciones simples y configuración inicial del sistema de nave
 
 ---
 
+### ✅ Capítulo 11 – Navegación básica del enemigo
+Implementación de un sistema de navegación simple para el enemigo utilizando `NavMeshAgent`.
+
+#### Características:
+- Uso de `NavMeshAgent` para mover al enemigo sobre el NavMesh
+- Definición de destinos mediante puntos en la escena
+- Cambio dinámico de destino según la distancia al objetivo
+- Integración del enemigo con el sistema de navegación previamente configurado
+
+
+#### Scripts:
+- `Assets/Scripts/AI/AI.cs`
+---
+
 ## 🛠️ Tecnologías utilizadas
 - Unity
 - C#
