@@ -151,6 +151,21 @@ Implementación de un sistema de navegación simple para el enemigo utilizando `
 - `Assets/Scripts/AI/AI.cs`
 ---
 
+### ✅ Capítulo 12 – Balanceo del arma (Weapon Sway)
+Implementación de un efecto de balanceo del arma basado en el movimiento del mouse para mejorar la sensación visual.
+
+#### Características:
+- Balanceo del arma según el movimiento del mouse
+- Uso de rotaciones locales para mantener coherencia con la cámara
+- Interpolación suave entre rotaciones usando `Quaternion.Lerp`
+- Efecto visual que mejora la sensación de peso y realismo del arma
+
+#### Script:
+- `Assets/Scripts/Weapon/WeaponSway.cs`
+
+
+---
+
 ## 🛠️ Tecnologías utilizadas
 - Unity
 - C#
