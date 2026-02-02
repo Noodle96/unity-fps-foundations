@@ -163,6 +163,23 @@ Implementación de un efecto de balanceo del arma basado en el movimiento del mo
 #### Script:
 - `Assets/Scripts/Weapon/WeaponSway.cs`
 
+---
+
+### ✅ Capítulo 13 – Patrullaje del enemigo y seguimiento del jugador
+Mejora del comportamiento del enemigo combinando patrullaje por puntos y seguimiento dinámico del jugador.
+
+#### Características:
+- Uso de múltiples puntos de destino para patrullaje del enemigo
+- Selección dinámica del destino activo
+- Cambio de destino al alcanzar un punto de patrulla
+- Detección de proximidad al jugador mediante distancia
+- Comportamiento condicional:
+  - Patrullaje cuando el jugador está lejos
+  - Seguimiento del jugador cuando entra en un rango definido
+- Uso de `NavMeshAgent` para navegación continua y fluida
+
+#### Script:
+- `Assets/Scripts/AI/AI.cs`
 
 ---
 
