@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Shot : MonoBehaviour
+public class Gun : MonoBehaviour
 {
     public Transform spawnPoint;
     public GameObject bullet;
@@ -13,7 +13,8 @@ public class Shot : MonoBehaviour
     void Update()
     {
         if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame) {
-            if (Time.time > shotRateTime) { 
+            if (Time.time > shotRateTime && GameManager.Instance.gunAmmo > 0) {
+                GameManager.Instance.gunAmmo--;
                 GameObject newBullet = Instantiate(bullet, spawnPoint.position, spawnPoint.rotation);
                 newBullet.GetComponent<Rigidbody>().AddForce(spawnPoint.forward * shotForce);
                 shotRateTime = Time.time + shotRate;
