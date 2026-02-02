@@ -183,6 +183,27 @@ Mejora del comportamiento del enemigo combinando patrullaje por puntos y seguimi
 
 ---
 
+### ✅ Capítulo 14 – Sistema de munición y Game Manager
+Introducción de un sistema básico de munición y recolección utilizando un administrador global del juego.
+
+#### Características:
+- Importación de un asset de caja de munición desde el Asset Store
+- Creación de un objeto de munición con `BoxCollider` configurado como `Is Trigger`
+- Uso de un script simple para definir la cantidad de munición recogida
+- Implementación de un `GameManager` como punto central de estado global
+- Gestión de la munición del arma desde un sistema compartido
+- Sistema de interacción del jugador mediante detección de `OnTriggerEnter`
+- Recolección de munición y destrucción del objeto al ser recogido
+- Modificación del sistema de disparo para consumir munición disponible
+
+#### Scripts:
+- `Assets/Scripts/World/GameManager.cs`
+- `Assets/Scripts/Weapon/Gun.cs`
+- `Assets/Scripts/World/AmmoBox.cs`
+- `Assets/Scripts/Player/PlayerInteractions.cs`
+
+---
+
 ## 🛠️ Tecnologías utilizadas
 - Unity
 - C#
