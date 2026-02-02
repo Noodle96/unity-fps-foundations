@@ -1,22 +1,65 @@
+using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class AI : MonoBehaviour
 {
     public NavMeshAgent navMeshAgent;
-    public GameObject destination1;
-    public GameObject destination2;
+    public Transform[] destinations;
+    private int index = 0;
+    private int lastIndex = -1;
+
+
+    [Header("Destinations")]
+    public bool followPlayer;
+
+    private GameObject player;
+
+    private float distanceToPlayer;
+    public float distanceToFollowPlayer = 10f;
+    public float distanceToFollowPath = 2f;
 
     void Start()
     {
-        navMeshAgent.destination = destination1.transform.position;
+        navMeshAgent.destination = destinations[0].transform.position;
+        player = Object.FindFirstObjectByType<PlayerMovement>().gameObject;  //FindObjectOfType<PlayerMovement>().gameObject;
+
     }
 
     void Update()
     {
-        float distance = Vector3.Distance(transform.position, destination1.transform.position);
-        if (distance < 2) {
-            navMeshAgent.destination = destination2.transform.position;
+        distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
+        if (distanceToPlayer <= distanceToFollowPlayer  && followPlayer)
+        {
+            FollowPlayer();
         }
+        else {
+            EnemyPath();
+        }
+    }
+
+    void EnemyPath() {
+        navMeshAgent.destination = destinations[index].position;
+        if (Vector3.Distance(transform.position, destinations[index].position) < distanceToFollowPath) {
+            index = GetRandomIndex();
+        }
+    }
+
+    void FollowPlayer() { 
+        navMeshAgent.destination = player.transform.position;
+    }
+
+    int GetRandomIndex()
+    {
+        if (destinations.Length <= 1) return 0;
+
+        int newIndex;
+        do
+        {
+            newIndex = Random.Range(0, destinations.Length);
+        } while (newIndex == lastIndex);
+
+        lastIndex = newIndex;
+        return newIndex;
     }
 }
