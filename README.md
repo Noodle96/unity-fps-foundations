@@ -336,6 +336,24 @@ Incorporación de nuevos enemigos al escenario y aplicación de animaciones simp
 
 ---
 
+### ✅ Capítulo 19 – Daño por caída y respawn del jugador
+Implementación de un sistema de daño ambiental que penaliza al jugador al caer fuera del escenario y gestiona su respawn o reinicio.
+
+#### Características:
+- Creación de una base inferior (`DeathFloor`) debajo del escenario principal
+- Detección de colisión del jugador con zonas de muerte mediante `Trigger`
+- Aplicación de daño al jugador al caer fuera del mapa
+- Sistema de reducción de vida del jugador
+- Respawn del jugador en una posición inicial configurable
+- Reinicio de la escena cuando la vida del jugador llega a cero
+- Actualización del estado de vida en la interfaz de usuario
+
+#### Scripts:
+- `Assets/Scripts/Player/PlayerInteractions.cs`
+- `Assets/Scripts/Managers/GameManager.cs`
+
+---
+
 
 
 

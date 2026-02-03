@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - GunAmmo
+  - DeathFloor
   layers:
   - Default
   - TransparentFX
