@@ -7,6 +7,8 @@ public class Grenade : MonoBehaviour
     public float radius = 5f;
     public float explosionForce = 70f;
     bool exploted = false;
+    public GameObject explosionEffect;
+
     private void Start()
     {
         countdown = delay;
@@ -23,6 +25,7 @@ public class Grenade : MonoBehaviour
     }
 
     private void Explote() {
+        Instantiate(explosionEffect, transform.position, transform.rotation);
         Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
         foreach (var coll in colliders) {
             Rigidbody rb = coll.GetComponent<Rigidbody>();
