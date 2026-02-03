@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 public class GameManager : MonoBehaviour
@@ -36,5 +37,15 @@ public class GameManager : MonoBehaviour
     {
         ammoText.text = ammo.ToString();
         weaponIcon.sprite = icon;
+    }
+
+    public void LoseHealth(int loseHealth) { 
+        playerHealth -= loseHealth;
+        checkHealth();
+    }
+    public void checkHealth() {
+        if (playerHealth <= 0) {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
     }
 }
