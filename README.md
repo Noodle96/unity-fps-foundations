@@ -304,7 +304,21 @@ Implementación de una barra de cooldown dinámica en la interfaz que refleja el
 
 ---
 
+### ✅ Capítulo 17.4 – Efecto visual de explosión de granadas
+Implementación de un efecto visual de explosión utilizando un sistema de partículas, integrado al comportamiento de la granada.
 
+#### Características:
+- Creación y configuración de un `Particle System` para la explosión
+- Conversión del sistema de partículas en un prefab reutilizable
+- Instanciación del efecto visual al momento de la explosión
+- Sincronización del efecto visual con la lógica de explosión
+- Aplicación de fuerza de explosión a objetos cercanos con `Rigidbody`
+- Destrucción automática de la granada tras la explosión
+
+#### Scripts:
+- `Assets/Scripts/Weapon/Grenade.cs`
+
+---
 
 
 
