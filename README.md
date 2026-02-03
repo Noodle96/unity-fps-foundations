@@ -283,6 +283,26 @@ Implementación del sistema de lanzamiento de granadas como un arma independient
 
 ---
 
+### ✅ Capítulo 17.3 – Sistema de cooldown por arma
+Implementación de una barra de cooldown dinámica en la interfaz que refleja el tiempo de recarga de cada arma activa.
+
+#### Características:
+- Uso de un `Slider` como barra de cooldown en el HUD
+- Representación visual del tiempo de espera antes de reutilizar un arma
+- Sistema de cooldown independiente por arma:
+  - Pistola con cooldown corto por disparo
+  - Granada con cooldown más largo por lanzamiento
+- Actualización progresiva de la barra en función del tiempo restante
+- Reutilización de una única barra de cooldown para todas las armas
+- Integración del cooldown con el sistema de cambio de armas
+- Reinicio del cooldown al usar el arma
+
+#### Scripts:
+- `Assets/Scripts/UI/CooldownUI.cs`
+- `Assets/Scripts/Weapon/Gun.cs`
+- `Assets/Scripts/Weapon/GrenadeWeapon.cs`
+
+---
 
 
 
