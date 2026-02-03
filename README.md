@@ -204,6 +204,37 @@ Introducción de un sistema básico de munición y recolección utilizando un ad
 
 ---
 
+### ✅ Capítulo 15 – Interfaz de usuario (HUD)
+Implementación de una interfaz de usuario básica para mostrar información del jugador durante el juego.
+
+#### Características:
+- Creación de un Canvas para la interfaz de usuario
+- Uso de textos e imágenes para mostrar munición y vida del jugador
+- Posicionamiento del HUD:
+  - Munición en la parte superior derecha
+  - Vida del jugador en la parte inferior izquierda
+- Configuración de imágenes UI usando `Texture Type: 2D and GUI`
+- Actualización dinámica de valores de la interfaz desde el `GameManager`
+- Visualización en tiempo real del contador de munición
+
+#### Scripts:
+- `Assets/Scripts/Managers/GameManager.cs`
+
+---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## 🛠️ Tecnologías utilizadas
 - Unity
 - C#
