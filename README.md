@@ -320,7 +320,21 @@ Implementación de un efecto visual de explosión utilizando un sistema de part�
 
 ---
 
+### ✅ Capítulo 18 – Enemigos y animaciones básicas
+Incorporación de nuevos enemigos al escenario y aplicación de animaciones simples para darles vida y presencia visual.
 
+#### Características:
+- Importación y colocación de nuevos enemigos en la escena:
+  - Araña
+  - Dron
+- Configuración inicial de modelos y jerarquías
+- Aplicación de animaciones básicas:
+  - Rotaciones en las patas de la araña para simular movimiento
+  - Rotaciones en el dron para dar sensación de actividad y flotación
+- Uso de transformaciones simples como primer acercamiento a la animación
+- Preparación de los enemigos para futuras mejoras de comportamiento y animación avanzada
+
+---
 
 
 
