@@ -185,6 +185,7 @@ MonoBehaviour:
   delay: 3
   radius: 5
   explosionForce: 100
+  explosionEffect: {fileID: 4162035016997997932, guid: 3676c120b8ad78c4996311e5b8c21427, type: 3}
 --- !u!1 &3923067584718316526
 GameObject:
   m_ObjectHideFlags: 0
