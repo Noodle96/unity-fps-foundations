@@ -239,6 +239,30 @@ Implementación de un sistema de granadas con temporizador y efecto de explosió
 ---
 
 
+### ✅ Capítulo 17.1 – Sistema de cambio de armas
+Implementación de un controlador de armas que permite alternar entre distintos tipos de armas y actualizar la interfaz de usuario en función del arma activa.
+
+#### Características:
+- Creación de un `WeaponController` para gestionar el arma activa del jugador
+- Organización de las armas bajo una jerarquía común (`Weapons`)
+- Activación y desactivación de armas mediante `SetActive`
+- Cambio de armas usando teclas numéricas:
+  - `1` → Pistola
+  - `2` → Granada
+- Representación visual del arma equipada (pistola o granada)
+- Gestión de munición independiente por tipo de arma
+- Actualización dinámica del HUD según el arma activa:
+  - Cambio de icono del arma
+  - Actualización del contador de munición
+
+#### Scripts:
+- `Assets/Scripts/Player/WeaponController.cs`
+- `Assets/Scripts/Managers/GameManager.cs`
+- `Assets/Scripts/Weapon/Gun.cs`
+- `Assets/Scripts/Player/PlayerInteractions.cs`
+
+---
+
 
 
 
