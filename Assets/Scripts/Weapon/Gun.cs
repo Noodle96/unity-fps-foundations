@@ -6,6 +6,7 @@ public class Gun : MonoBehaviour
     [Header("References")]
     public Transform spawnPoint;
     public GameObject bullet;
+    public CooldownUI cooldownUI;
 
     [Header("Gun Settings")]
     public float shotForce = 1500f;
@@ -13,13 +14,27 @@ public class Gun : MonoBehaviour
 
     private float shotRateTime = 0f;
 
+    private float cooldownTimer;
+
     void Update()
     {
+        UpdateCooldownUI();
+
         if (Mouse.current == null) return;
 
         if (Mouse.current.leftButton.wasPressedThisFrame)
         {
             TryShoot();
+        }
+    }
+
+    void UpdateCooldownUI()
+    {
+        if (cooldownTimer < shotRate)
+        {
+            cooldownTimer += Time.deltaTime;
+            float normalized = cooldownTimer / shotRate;
+            cooldownUI.SetCooldown(normalized);
         }
     }
 
@@ -48,6 +63,8 @@ public class Gun : MonoBehaviour
         }
 
         shotRateTime = Time.time + shotRate;
+        cooldownTimer = 0f; // reiniciamos el timer de cooldown
+        cooldownUI.SetCooldown(0f); // actualizamos la UI a 0
 
         Destroy(newBullet, 5f);
 
