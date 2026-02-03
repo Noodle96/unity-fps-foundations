@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-            Instance = this;
+            Instance = this;    
     }
 
     private void Update()

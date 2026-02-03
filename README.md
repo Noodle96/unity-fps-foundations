@@ -222,6 +222,22 @@ Implementación de una interfaz de usuario básica para mostrar información del
 
 ---
 
+### ✅ Capítulo 16 – Sistema básico de granadas
+Implementación de un sistema de granadas con temporizador y efecto de explosión usando físicas.
+
+#### Características:
+- Creación de una granada simulada inicialmente con una esfera
+- Reemplazo del modelo visual por un mesh y material descargados desde un asset
+- Uso de un temporizador para retrasar la explosión
+- Detección de objetos dentro de un radio de explosión
+- Aplicación de fuerza de explosión a objetos con `Rigidbody`
+- Destrucción de la granada tras la explosión
+
+#### Scripts:
+- `Assets/Scripts/Weapon/Grenade.cs`
+
+---
+
 
 
 
