@@ -1,14 +1,25 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
-    public int gunAmmo = 10;
-    public int playerHealth = 100;
 
-    public TextMeshProUGUI ammoText;
+
+    [Header("Player Stats")]
+    public int gunAmmo = 10;
+    public int grenadeAmmo = 3;
+    public int playerHealth = 100;
     public TextMeshProUGUI healthText;
+    public Image weaponIcon;
+
+    [Header("HUD")]
+    public TextMeshProUGUI ammoText;
+    public Sprite gunIcon;
+    public Sprite grenadeIcon;
+
 
     private void Awake()
     {
@@ -17,7 +28,13 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        ammoText.text = gunAmmo.ToString();
+        //ammoText.text = gunAmmo.ToString();
         healthText.text = playerHealth.ToString();
+    }
+
+    public void UpdateAmmoUI(int ammo, Sprite icon)
+    {
+        ammoText.text = ammo.ToString();
+        weaponIcon.sprite = icon;
     }
 }
