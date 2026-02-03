@@ -264,6 +264,25 @@ Implementación de un controlador de armas que permite alternar entre distintos 
 ---
 
 
+### ✅ Capítulo 17.2 – Lanzamiento de granadas
+Implementación del sistema de lanzamiento de granadas como un arma independiente, integrada con el controlador de armas y el HUD.
+
+#### Características:
+- Creación de un arma de tipo granada con comportamiento propio
+- Uso de un `GrenadeSpawnPoint` independiente al arma de fuego
+- Lanzamiento de granadas mediante click izquierdo cuando la granada está equipada
+- Aplicación de fuerza al proyectil para simular un lanzamiento con arco
+- Consumo de munición de granadas desde el `GameManager`
+- Actualización del HUD tras lanzar una granada
+- Integración del sistema de granadas con el `WeaponController`
+
+#### Scripts:
+- `Assets/Scripts/Weapon/GrenadeWeapon.cs`
+- `Assets/Scripts/Managers/GameManager.cs`
+- `Assets/Scripts/Player/WeaponController.cs`
+
+---
+
 
 
 
