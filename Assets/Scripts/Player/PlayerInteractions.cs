@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PlayerInteractions : MonoBehaviour
 {
+    public Transform startPlayerPosition;
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("GunAmmo")) { 
@@ -12,6 +13,13 @@ public class PlayerInteractions : MonoBehaviour
                 GameManager.Instance.gunIcon
             );
             Destroy(other.gameObject);
+        }
+
+        if (other.gameObject.CompareTag("DeathFloor")) { 
+            GameManager.Instance.LoseHealth(50);
+            GetComponent<CharacterController>().enabled = false;
+            transform.position = startPlayerPosition.position;
+            GetComponent<CharacterController>().enabled = true;
         }
     }
 }
