@@ -4,30 +4,40 @@ using UnityEngine.AI;
 
 public class AI : MonoBehaviour
 {
+    [Header("NavMesh")]
     public NavMeshAgent navMeshAgent;
+
+    [Header("Patrol")]
     public Transform[] destinations;
+    public float patrolStopDistance = 0.5f;
+
     private int index = 0;
     private int lastIndex = -1;
 
 
-    [Header("Destinations")]
-    public bool followPlayer;
+    [Header("Player Detection")]
+    public bool followPlayer = true;
+    public float distanceToFollowPlayer = 10f;
+    public float attackStopDistance = 8f;
+
 
     private GameObject player;
-
     private float distanceToPlayer;
-    public float distanceToFollowPlayer = 10f;
-    public float distanceToFollowPath = 2f;
+    //public float distanceToFollowPath = 2f;
 
     void Start()
     {
-        navMeshAgent.destination = destinations[0].transform.position;
         player = Object.FindFirstObjectByType<PlayerMovement>().gameObject;  //FindObjectOfType<PlayerMovement>().gameObject;
-
+        if (destinations.Length > 0) {
+            navMeshAgent.stoppingDistance = patrolStopDistance;
+            navMeshAgent.destination = destinations[0].position;
+        }
     }
 
     void Update()
     {
+        if (player == null) return;
+
         distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
         if (distanceToPlayer <= distanceToFollowPlayer  && followPlayer)
         {
@@ -39,6 +49,9 @@ public class AI : MonoBehaviour
     }
 
     void EnemyPath() {
+        if (destinations.Length == 0) return;
+
+        navMeshAgent.stoppingDistance = patrolStopDistance;
         navMeshAgent.destination = destinations[index].position;
         //if (Vector3.Distance(transform.position, destinations[index].position) < distanceToFollowPath) {
         //    index = GetRandomIndex();
@@ -48,7 +61,11 @@ public class AI : MonoBehaviour
         }
     }
 
-    void FollowPlayer() { 
+    // =======================
+    // Follow / Attack logic
+    // =======================
+    void FollowPlayer() {
+        navMeshAgent.stoppingDistance = attackStopDistance;
         navMeshAgent.destination = player.transform.position;
     }
 

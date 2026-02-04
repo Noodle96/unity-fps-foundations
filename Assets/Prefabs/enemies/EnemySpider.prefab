@@ -157,6 +157,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2087350222935284424}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2374103778609335143
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 125582053973437927}
+  m_Layer: 0
+  m_Name: EnemySpawnPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &125582053973437927
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2374103778609335143}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.127, z: 0.231}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6519294214370691144}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3304985677612700086
 GameObject:
   m_ObjectHideFlags: 0
@@ -203,6 +234,7 @@ GameObject:
   - component: {fileID: 2400766053655592570}
   - component: {fileID: 47145463281810033}
   - component: {fileID: 2861877794815640275}
+  - component: {fileID: 5345219851797677601}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -224,6 +256,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6423254398073793594}
+  - {fileID: 125582053973437927}
   m_Father: {fileID: 2272020186288862542}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &483101228978920282
@@ -319,9 +352,10 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  followPlayer: 0
-  distanceToFollowPlayer: 10
-  distanceToFollowPath: 2
+  patrolStopDistance: 0.5
+  followPlayer: 1
+  distanceToFollowPlayer: 15
+  attackStopDistance: 6
 --- !u!65 &2861877794815640275
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -343,6 +377,24 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.8923015, y: 0.4249103, z: 1}
   m_Center: {x: 0.000000029802322, y: 0.18847224, z: 0}
+--- !u!114 &5345219851797677601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3365923753357558757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae4379fa58443124cbc03af82456b57a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyBullet: {fileID: 0}
+  spawnBulletPoint: {fileID: 0}
+  playerPosition: {fileID: 0}
+  attackRange: 15
+  bulletForce: 20
+  shootCooldown: 3
 --- !u!1 &3893395874437603631
 GameObject:
   m_ObjectHideFlags: 0
