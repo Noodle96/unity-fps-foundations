@@ -22,4 +22,12 @@ public class PlayerInteractions : MonoBehaviour
             GetComponent<CharacterController>().enabled = true;
         }
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("EnemyBullet")) {
+            // Cuando un EnemyBullet choca con el Player, este pierde vida en X puntos
+            GameManager.Instance.LoseHealth(10);
+        }
+    }
 }

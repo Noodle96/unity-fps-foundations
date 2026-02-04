@@ -28,10 +28,10 @@ public class PlayerMovement : MonoBehaviour
         if (isGrounded && velocity.y < 0)
         {
             velocity.y = -2f; // Small negative value to keep the player grounded
-            Debug.Log("Player is grounded.");
+            //Debug.Log("Player is grounded.");
         }
         else { 
-            Debug.Log("Player is not grounded.");
+            //Debug.Log("Player is not grounded.");
         }
         
         float x = Input.GetAxis("Horizontal");
