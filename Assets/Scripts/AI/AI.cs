@@ -40,7 +40,10 @@ public class AI : MonoBehaviour
 
     void EnemyPath() {
         navMeshAgent.destination = destinations[index].position;
-        if (Vector3.Distance(transform.position, destinations[index].position) < distanceToFollowPath) {
+        //if (Vector3.Distance(transform.position, destinations[index].position) < distanceToFollowPath) {
+        //    index = GetRandomIndex();
+        //}
+        if (!navMeshAgent.pathPending && navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance){
             index = GetRandomIndex();
         }
     }

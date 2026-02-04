@@ -354,8 +354,25 @@ Implementación de un sistema de daño ambiental que penaliza al jugador al caer
 
 ---
 
+### ✅ Capítulo 20 – Ataque de enemigos a distancia
+Implementación del sistema de ataque de los enemigos mediante disparos, incluyendo proyectiles, detección de impacto y daño al jugador.
 
+#### Características:
+- Creación de un sistema de disparo para enemigos basado en distancia al jugador
+- Disparo condicionado por rango de ataque y cooldown
+- Instanciación de proyectiles enemigos desde un punto de disparo
+- Aplicación de fuerza al proyectil en dirección al jugador
+- Creación de un prefab de bala enemiga con tiempo de vida limitado
+- Detección de colisiones entre la bala enemiga y el jugador
+- Reducción de la vida del jugador al recibir daño de un enemigo
+- Integración del sistema de ataque con la lógica de vida del jugador
 
+#### Scripts:
+- `Assets/Scripts/Enemy/EnemyShoot.cs`
+- `Assets/Scripts/Enemy/BulletEnemy.cs`
+- `Assets/Scripts/Player/PlayerInteractions.cs`
+
+---
 
 
 
