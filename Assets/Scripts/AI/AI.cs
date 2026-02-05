@@ -26,8 +26,20 @@ public class AI : MonoBehaviour
     private float distanceToPlayer;
     //public float distanceToFollowPath = 2f;
 
+    [Header("Sound")]
+    private AudioSource audioSource;
+    public AudioClip chaseSound;
+
     void Start()
     {
+        // Initialize Audio Source
+        audioSource = GetComponent<AudioSource>();
+        if(audioSource != null && chaseSound != null) {
+            audioSource.clip = chaseSound;
+            audioSource.loop = true;
+            audioSource.playOnAwake = false;
+            audioSource.Play();
+        }
         player = Object.FindFirstObjectByType<PlayerMovement>().gameObject;  //FindObjectOfType<PlayerMovement>().gameObject;
         if (destinations.Length > 0) {
             navMeshAgent.stoppingDistance = patrolStopDistance;

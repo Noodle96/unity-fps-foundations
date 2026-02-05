@@ -11,6 +11,11 @@ public class PlayerMovement : MonoBehaviour
     bool isGrounded;
     public float jumpHeight = 3f;
 
+    [Header("Player Run")]
+    private bool isRunning = false;
+    public float runningSpeedMultiplier = 2f;
+    private float runningSpeed = 1f;
+
 
     Vector3 velocity;
     private void Start()
@@ -37,8 +42,9 @@ public class PlayerMovement : MonoBehaviour
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
         Vector3 move = transform.right * x + transform.forward * z;
+        RunCheck();
         // Apply movement
-        characterController.Move(move * speed * Time.deltaTime);
+        characterController.Move(move * speed * Time.deltaTime * runningSpeed);
 
 
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded) { 
@@ -46,8 +52,23 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("Player jumped.");
         }
 
+
         // Apply gravity
         velocity.y += gravity * Time.deltaTime;
         characterController.Move(velocity * Time.deltaTime);
+    }
+
+    public void RunCheck() {
+        if (Input.GetKeyDown(KeyCode.LeftShift)) { 
+            isRunning = !isRunning;
+        }
+        if (isRunning)
+        {
+            runningSpeed = runningSpeedMultiplier;
+        }
+        else {
+            runningSpeed = 1f;
+        }
+    
     }
 }

@@ -4775,6 +4775,10 @@ PrefabInstance:
       propertyPath: sphereRadius
       value: 0.3
       objectReference: {fileID: 0}
+    - target: {fileID: 5356361686781493046, guid: a952e6cda619e0b48a93ba7a3f8d611f, type: 3}
+      propertyPath: runningSpeedMultiplier
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
