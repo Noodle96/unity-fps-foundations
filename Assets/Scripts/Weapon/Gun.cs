@@ -13,16 +13,25 @@ public class Gun : MonoBehaviour
     public float shotRate = 0.5f;
 
     private float shotRateTime = 0f;
-
     private float cooldownTimer;
 
+    [Header("Sound")]
+    private AudioSource audioSource;
+    public AudioClip shootSound;
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+        cooldownTimer = shotRate; // Inicializamos el timer de cooldown al máximo
+        cooldownUI.SetCooldown(1f); // actualizamos la UI a lleno
+    }
     void Update()
     {
         UpdateCooldownUI();
 
         if (Mouse.current == null) return;
 
-        if (Mouse.current.leftButton.wasPressedThisFrame)
+        if (Mouse.current?.leftButton.wasPressedThisFrame == true)
         {
             TryShoot();
         }
@@ -49,6 +58,11 @@ public class Gun : MonoBehaviour
     void Shoot()
     {
         GameManager.Instance.gunAmmo--;
+        // Reproducir sonido de disparo
+        if (audioSource != null && shootSound != null)
+        {
+            audioSource.PlayOneShot(shootSound);
+        }
 
         GameObject newBullet = Instantiate(
             bullet,

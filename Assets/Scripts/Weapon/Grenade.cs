@@ -9,9 +9,14 @@ public class Grenade : MonoBehaviour
     bool exploted = false;
     public GameObject explosionEffect;
 
+    [Header("Sounds")]
+    private AudioSource audioSource;
+    public AudioClip explosionSound;
+
     private void Start()
     {
         countdown = delay;
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -33,7 +38,21 @@ public class Grenade : MonoBehaviour
                 rb.AddExplosionForce(explosionForce *  10 , transform.position, radius);
             }
         }
-        Destroy(gameObject);
+
+        // Reproducir sonido de explosión
+        if (audioSource != null && explosionSound != null)
+        {
+            audioSource.PlayOneShot(explosionSound);
+            //AudioSource.PlayClipAtPoint(
+            //    explosionSound,
+            //    transform.position
+            //);
+        }
+        // Desactivar el objeto después de la explosión
+        gameObject.GetComponent<MeshRenderer>().enabled = false;
+        gameObject.GetComponent<SphereCollider>().enabled = false;
+
+        Destroy(gameObject, delay * 2f);
     }
 
 
