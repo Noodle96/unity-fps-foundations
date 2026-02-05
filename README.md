@@ -374,6 +374,8 @@ Implementación del sistema de ataque de los enemigos mediante disparos, incluye
 
 ---
 
+### ✅ Capítulo 21 – Blocking Nivel
+Implementación del los niveles del juego.
 
 
 
