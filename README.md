@@ -396,6 +396,32 @@ Implementación de un sistema de pausa que permite detener y reanudar el juego m
 
 ---
 
+### ✅ Capítulo 23 – Sistema de audio para armas y granadas
+Incorporación de efectos de sonido para disparos y explosiones, integrados directamente en los prefabs de armas y granadas.
+
+#### Características:
+- Uso del componente `AudioSource` en los prefabs de arma y granada
+- Reproducción de sonido de disparo mediante `PlayOneShot`
+- Reproducción de sonido de explosión al detonar una granada
+- Integración del audio con el sistema de cooldown del arma
+- Sincronización entre disparo, sonido y HUD
+- Desactivación visual de la granada tras la explosión antes de su destrucción
+
+#### Scripts:
+- `Assets/Scripts/Weapon/Gun.cs`
+- `Assets/Scripts/Weapon/Grenade.cs`
+
+---
+
+
+
+
+
+
+
+
+
+
 ## 🛠️ Tecnologías utilizadas
 - Unity
 - C#
