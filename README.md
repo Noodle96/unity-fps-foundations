@@ -414,6 +414,20 @@ Incorporación de efectos de sonido para disparos y explosiones, integrados dire
 ---
 
 
+### ✅ Capítulo 24 – Sistema de sprint del jugador
+Incorporación de la mecánica de carrera (sprint) que permite al jugador moverse más rápido de forma dinámica durante el gameplay.
+
+#### Características:
+- Implementación de un sistema de sprint activado mediante la tecla `Left Shift`
+- Alternancia entre caminar y correr usando un estado booleano
+- Modificación dinámica de la velocidad de movimiento del jugador
+- Integración del sprint con el sistema de movimiento existente basado en `CharacterController`
+- Control limpio del multiplicador de velocidad sin duplicar lógica de movimiento
+
+#### Scripts:
+- `Assets/Scripts/Player/PlayerMovement.cs`
+
+
 
 
 
