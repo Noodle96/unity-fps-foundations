@@ -164,7 +164,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
-  m_BaseOffset: 3
+  m_BaseOffset: 2
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!114 &9047189541055340964
@@ -185,9 +185,10 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  followPlayer: 0
+  patrolStopDistance: 0.5
+  followPlayer: 1
   distanceToFollowPlayer: 10
-  distanceToFollowPath: 2
+  attackStopDistance: 8
 --- !u!114 &6183388553990658362
 MonoBehaviour:
   m_ObjectHideFlags: 0
