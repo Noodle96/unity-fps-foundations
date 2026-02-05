@@ -377,17 +377,28 @@ Implementación del sistema de ataque de los enemigos mediante disparos, incluye
 ### ✅ Capítulo 21 – Blocking Nivel
 Implementación del los niveles del juego.
 
+---
 
+### ✅ Capítulo 22 – Sistema de pausa del juego
+Implementación de un sistema de pausa que permite detener y reanudar el juego mostrando un menú en pantalla.
+
+#### Características:
+- Creación de un panel de pausa dentro del Canvas
+- Visualización de un mensaje de “Juego en Pausa”
+- Control de pausa mediante una tecla (`P`)
+- Congelación completa del juego usando `Time.timeScale`
+- Activación y desactivación del menú de pausa según el estado del juego
+- Integración del sistema de pausa con el `GameManager`
+
+#### Scripts:
+- `Assets/Scripts/UI/Menu.cs`
+- `Assets/Scripts/Managers/GameManager.cs`
+
+---
 
 ## 🛠️ Tecnologías utilizadas
 - Unity
 - C#
 - Input Manager (Mouse X / Mouse Y)
-
----
-
-## 📈 Estado del proyecto
-🟢 En desarrollo  
-Este README se actualizará progresivamente conforme se agreguen nuevos sistemas y funcionalidades.
 
 ---

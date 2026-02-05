@@ -17,6 +17,7 @@ public class AI : MonoBehaviour
 
     [Header("Player Detection")]
     public bool followPlayer = true;
+    [Header("DistanceToFollowPlayer = attackRange")]
     public float distanceToFollowPlayer = 10f;
     public float attackStopDistance = 8f;
 

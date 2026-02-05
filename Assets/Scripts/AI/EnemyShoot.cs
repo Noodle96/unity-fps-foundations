@@ -8,7 +8,9 @@ public class EnemyShoot : MonoBehaviour
     public Transform playerPosition;
 
     [Header("Shoot Settings")]
+    [Header("attackRange = DistanceToFollowPlayer")]
     public float attackRange = 15f;
+
     public float bulletForce = 20f;
     public float shootCooldown = 3f;
 
@@ -28,7 +30,7 @@ public class EnemyShoot : MonoBehaviour
 
         if (distanceToPlayer <= attackRange && Time.time >= nextShootTime)
         {
-            Debug.Log("distanceToPlayer <= 10");
+            //Debug.Log("distanceToPlayer <= 10");
             ShootPlayer();
         }
     }

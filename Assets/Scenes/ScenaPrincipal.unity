@@ -6158,6 +6158,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3267683669922812560, guid: ffcb380105d8a3449b68bfc8a7304e89, type: 3}
+      propertyPath: menuPanel
+      value: 
+      objectReference: {fileID: 1657168284}
     - target: {fileID: 6377834247565523252, guid: ffcb380105d8a3449b68bfc8a7304e89, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -6315,6 +6319,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4519200386262287174, guid: ae44e94dd71047146a15239042c91023, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4930929751417534750, guid: ae44e94dd71047146a15239042c91023, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -6328,6 +6336,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae44e94dd71047146a15239042c91023, type: 3}
+--- !u!1 &1657168284 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4519200386262287174, guid: ae44e94dd71047146a15239042c91023, type: 3}
+  m_PrefabInstance: {fileID: 1657168283}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1662817114
 PrefabInstance:
   m_ObjectHideFlags: 0

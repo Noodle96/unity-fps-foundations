@@ -187,8 +187,8 @@ MonoBehaviour:
   - {fileID: 0}
   patrolStopDistance: 0.5
   followPlayer: 1
-  distanceToFollowPlayer: 10
-  attackStopDistance: 8
+  distanceToFollowPlayer: 8
+  attackStopDistance: 7.5
 --- !u!114 &6183388553990658362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -204,7 +204,7 @@ MonoBehaviour:
   enemyBullet: {fileID: 0}
   spawnBulletPoint: {fileID: 0}
   playerPosition: {fileID: 0}
-  attackRange: 15
+  attackRange: 8
   bulletForce: 20
   shootCooldown: 3
 --- !u!1 &2816834335142293049
