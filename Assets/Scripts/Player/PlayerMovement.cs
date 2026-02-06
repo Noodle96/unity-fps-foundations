@@ -65,22 +65,34 @@ public class PlayerMovement : MonoBehaviour
     }
 
     public void RunCheck() {
-        if (Input.GetKeyDown(KeyCode.LeftShift)) { 
+        if (Input.GetKeyDown(KeyCode.LeftShift)) {
             isRunning = !isRunning;
-            if (isRunning) {
-                runningSlider.UseStamina(staminaUseAmount);
-            }
-            else { 
-                runningSlider.UseStamina(0f);
-            }
+            //if (isRunning) {
+            //    runningSlider.UseStamina(staminaUseAmount);
+            //}
+            //else { 
+            //    runningSlider.UseStamina(0f);
+            //}
+            //if (runningSlider.CanRun())
+            //{
+            //    isRunning = !isRunning;
+            //    runningSlider.SetRunning(isRunning);
+            //}
         }
-        if (isRunning)
+        //if (isRunning)
+        //{
+        //    runningSpeed = runningSpeedMultiplier;
+        //}
+        //else {
+        //    runningSpeed = 1f;
+        //}
+        if (isRunning && !runningSlider.CanRun())
         {
-            runningSpeed = runningSpeedMultiplier;
+            isRunning = false;
         }
-        else {
-            runningSpeed = 1f;
-        }
-    
+
+        runningSlider.SetRunning(isRunning);
+        runningSpeed = isRunning ? runningSpeedMultiplier : 1f;
+
     }
 }
