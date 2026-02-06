@@ -427,7 +427,26 @@ Incorporación de la mecánica de carrera (sprint) que permite al jugador movers
 #### Scripts:
 - `Assets/Scripts/Player/PlayerMovement.cs`
 
+---
 
+
+### ✅ Capítulo 25 – Sistema de stamina para el sprint
+Implementación de un sistema de stamina visual y funcional que limita el uso del sprint del jugador mediante un `Slider` en la interfaz.
+
+#### Características:
+- Creación de un `Slider` en el Canvas para representar la stamina del jugador
+- Inicialización de valores máximos y actuales de stamina
+- Consumo progresivo de stamina al correr
+- Regeneración automática de stamina tras un tiempo sin correr
+- Uso de corrutinas para manejar pérdida y regeneración de stamina
+- Desactivación automática del sprint cuando la stamina se agota
+- Integración directa del sistema de stamina con el movimiento del jugador
+
+#### Scripts:
+- `Assets/Scripts/UI/RunningSliderUI.cs`
+- `Assets/Scripts/Player/PlayerMovement.cs`
+
+---
 
 
 
