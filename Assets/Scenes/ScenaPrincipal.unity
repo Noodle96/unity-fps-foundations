@@ -6732,7 +6732,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7547837053435324148, guid: ffcb380105d8a3449b68bfc8a7304e89, type: 3}
       propertyPath: gunAmmo
-      value: 100
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 7547837053435324148, guid: ffcb380105d8a3449b68bfc8a7304e89, type: 3}
       propertyPath: ammoText
@@ -6763,6 +6763,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 125567824555553907, guid: ae44e94dd71047146a15239042c91023, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 125567824555553907, guid: ae44e94dd71047146a15239042c91023, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1508880629230705399, guid: ae44e94dd71047146a15239042c91023, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -6856,6 +6864,22 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4930929751417534750, guid: ae44e94dd71047146a15239042c91023, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5176830185808943676, guid: ae44e94dd71047146a15239042c91023, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5176830185808943676, guid: ae44e94dd71047146a15239042c91023, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5176830185808943676, guid: ae44e94dd71047146a15239042c91023, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5886188717556115501, guid: ae44e94dd71047146a15239042c91023, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}

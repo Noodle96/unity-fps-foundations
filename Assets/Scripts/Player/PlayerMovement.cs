@@ -12,9 +12,13 @@ public class PlayerMovement : MonoBehaviour
     public float jumpHeight = 3f;
 
     [Header("Player Run")]
-    private bool isRunning = false;
+    public bool isRunning = false;
     public float runningSpeedMultiplier = 2f;
     private float runningSpeed = 1f;
+
+    [Header("Running UI")]
+    public float staminaUseAmount = 5f;
+    private RunningSliderUI runningSlider;
 
 
     Vector3 velocity;
@@ -26,6 +30,8 @@ public class PlayerMovement : MonoBehaviour
 
         //Debug.Log("Player position: " + any.ToString());
         //Debug.Log("Player right vector: " + any2.ToString());
+
+        runningSlider = Object.FindFirstObjectByType<RunningSliderUI>();
     }
     void Update()
     {
@@ -61,6 +67,12 @@ public class PlayerMovement : MonoBehaviour
     public void RunCheck() {
         if (Input.GetKeyDown(KeyCode.LeftShift)) { 
             isRunning = !isRunning;
+            if (isRunning) {
+                runningSlider.UseStamina(staminaUseAmount);
+            }
+            else { 
+                runningSlider.UseStamina(0f);
+            }
         }
         if (isRunning)
         {
