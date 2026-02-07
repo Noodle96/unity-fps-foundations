@@ -1,56 +1,110 @@
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class WeaponController : MonoBehaviour
 {
+    [Header("UI")]
+    [SerializeField] private Transform weaponsPanel;
+    [SerializeField] private WeaponSlotUI weaponSlotPrefab;
+
+    private List<WeaponSlotUI> weaponSlots = new List<WeaponSlotUI>();
+
+
     [Header("Weapons")]
-    public GameObject gun;
-    public GameObject grenade;
+    [SerializeField] private List<WeaponBase> weapons = new List<WeaponBase>();
 
-    public enum WeaponType
-    {
-        Gun,
-        Grenade
-    }
-
-    public WeaponType currentWeapon;
+    private int currentWeaponIndex = 0;
+    public WeaponBase CurrentWeapon => weapons[currentWeaponIndex];
 
     private void Start()
     {
-        EquipGun();
+        // Desactivar todas las armas
+        foreach (var weapon in weapons)
+        {
+            weapon.OnDeselect();
+        }
+        CreateWeaponSlots();
+        // Activar la primera
+        if (weapons.Count > 0)
+        {
+            currentWeaponIndex = 0;
+            weapons[0].OnSelect();
+            weaponSlots[0].SetActive(true);
+        }
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        HandleWeaponUse();
+        HandleWeaponSwitch();
+    }
+
+    // ---------- INPUT: USO DEL ARMA ----------
+
+    private void HandleWeaponUse()
+    {
+        if (Mouse.current == null) return;
+
+        // Click inicial
+        if (Mouse.current.leftButton.wasPressedThisFrame)
         {
-            EquipGun();
+            CurrentWeapon.TryUse();
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha2))
+        // Mantener presionado (Laser)
+        if (Mouse.current.leftButton.isPressed)
         {
-            EquipGrenade();
+            CurrentWeapon.TryUse();
+        }
+
+        // Soltar
+        if (Mouse.current.leftButton.wasReleasedThisFrame)
+        {
+            CurrentWeapon.ForceStopUse();
         }
     }
 
-    void EquipGun()
+    // ---------- INPUT: CAMBIO DE ARMA ----------
+
+    private void HandleWeaponSwitch()
     {
-        gun.SetActive(true);
-        grenade.SetActive(false);
-        currentWeapon = WeaponType.Gun;
-        GameManager.Instance.UpdateAmmoUI(
-            GameManager.Instance.gunAmmo,
-            GameManager.Instance.gunIcon
-        );
+        if (Keyboard.current == null) return;
+
+        if (Keyboard.current.tabKey.wasPressedThisFrame)
+        {
+            SwitchToNextWeapon();
+        }
     }
 
-    void EquipGrenade()
+    private void SwitchToNextWeapon()
     {
-        gun.SetActive(false);
-        grenade.SetActive(true);
-        currentWeapon = WeaponType.Grenade;
-        GameManager.Instance.UpdateAmmoUI(
-            GameManager.Instance.grenadeAmmo,
-            GameManager.Instance.grenadeIcon
-        );
+        weapons[currentWeaponIndex].ForceStopUse();
+        weapons[currentWeaponIndex].OnDeselect();
+        weaponSlots[currentWeaponIndex].SetActive(false);
+
+        currentWeaponIndex = (currentWeaponIndex + 1) % weapons.Count;
+
+        weapons[currentWeaponIndex].OnSelect();
+        weaponSlots[currentWeaponIndex].SetActive(true);
+    }
+
+
+    private void CreateWeaponSlots()
+    {
+        weaponSlots.Clear();
+
+        foreach (var weapon in weapons)
+        {
+            WeaponSlotUI slot = Instantiate(
+                weaponSlotPrefab,
+                weaponsPanel
+            );
+
+            slot.Bind(weapon);
+            slot.SetActive(false);
+
+            weaponSlots.Add(slot);
+        }
     }
 }
