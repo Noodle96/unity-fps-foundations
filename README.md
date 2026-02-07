@@ -448,9 +448,36 @@ Implementación de un sistema de stamina visual y funcional que limita el uso de
 
 ---
 
+### ✅ Capítulo 26 – Sistema de armas escalable y UI dinámica
+
+Refactor completo del sistema de armas para soportar múltiples tipos de armas de forma escalable, desacoplada y con una interfaz dinámica que se adapta al arma activa.
+
+#### Características:
+- Creación de una clase base `WeaponBase` para unificar el comportamiento común de todas las armas
+- Gestión de munición y cooldown de forma individual por arma
+- Implementación de armas concretas (`Gun`, `M4_8`, `GrenadeWeapon`, `LaserWeapon`) heredando de `WeaponBase`
+- Centralización del control de armas mediante `WeaponController`
+- Cambio de arma utilizando la tecla `TAB`
+- Soporte para armas de uso único y armas de uso continuo (láser)
+- Creación de una interfaz dinámica basada en slots de armas
+- Visualización de icono y munición por cada arma
+- Visualización del cooldown únicamente en el arma actualmente equipada
+- Refactor del `GameManager`, eliminando la gestión de munición y dejándolo como gestor de estado global
+- Actualización de `PlayerInteractions` para que los pickups de munición afecten al arma activa
+
+#### Scripts:
+- `Assets/Scripts/Weapons/WeaponBase.cs`
+- `Assets/Scripts/Weapons/Gun.cs`
+- `Assets/Scripts/Weapons/M4_8.cs`
+- `Assets/Scripts/Weapons/GrenadeWeapon.cs`
+- `Assets/Scripts/Weapons/LaserWeapon.cs`
+- `Assets/Scripts/Player/WeaponController.cs`
+- `Assets/Scripts/UI/WeaponSlotUI.cs`
+- `Assets/Scripts/World/GameManager.cs`
+- `Assets/Scripts/Player/PlayerInteractions.cs`
 
 
-
+---
 
 
 

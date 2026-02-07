@@ -3,15 +3,21 @@ using UnityEngine;
 public class PlayerInteractions : MonoBehaviour
 {
     public Transform startPlayerPosition;
+    private WeaponController weaponController;
+
+    private void Start()
+    {
+        weaponController = GetComponent<WeaponController>();
+    }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("GunAmmo")) { 
-            GameManager.Instance.gunAmmo += other.gameObject.GetComponent<AmmoBox>().ammoAmount;
-            // Actualizar HUD
-            GameManager.Instance.UpdateAmmoUI(
-                GameManager.Instance.gunAmmo,
-                GameManager.Instance.gunIcon
-            );
+        if (other.gameObject.CompareTag("GunAmmo")) {
+            AmmoBox ammoBox = other.GetComponent<AmmoBox>();
+            if (ammoBox != null && weaponController != null)
+            {
+                weaponController.CurrentWeapon.AddAmmo(ammoBox.ammoAmount);
+            }
+
             Destroy(other.gameObject);
         }
 
