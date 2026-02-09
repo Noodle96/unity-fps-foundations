@@ -476,9 +476,23 @@ Refactor completo del sistema de armas para soportar múltiples tipos de armas d
 - `Assets/Scripts/World/GameManager.cs`
 - `Assets/Scripts/Player/PlayerInteractions.cs`
 
-
 ---
 
+### ✅ Capítulo 27 – Cambio de cámara en primera y tercera persona
+
+Implementación de un sistema de cambio dinámico entre cámara en primera persona y tercera persona, permitiendo alternar la perspectiva del jugador durante el gameplay.
+
+#### Características:
+- Uso de dos cámaras independientes (First Person y Third Person)
+- Activación y desactivación de cámaras mediante una sola tecla
+- Alternancia de estado usando una variable booleana
+- Cambio inmediato de perspectiva sin recargar la escena
+- Sistema fácilmente extensible para futuras cámaras (cinemática, espectador, etc.)
+
+#### Scripts:
+- `Assets/Scripts/Camera/CameraSwitch.cs`
+
+---
 
 
 

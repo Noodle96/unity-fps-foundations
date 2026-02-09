@@ -15,6 +15,11 @@ public class LaserWeapon : WeaponBase
     // Este arma es de uso continuo
     protected override bool IsContinuous => true;
 
+    private void Start()
+    {
+        laserRenderer.widthMultiplier = 0.02f;
+    }
+
     protected override void StartUse()
     {
         if (isFiring) return;
