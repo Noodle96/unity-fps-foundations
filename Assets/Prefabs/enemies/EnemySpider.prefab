@@ -235,7 +235,6 @@ GameObject:
   - component: {fileID: 47145463281810033}
   - component: {fileID: 2861877794815640275}
   - component: {fileID: 5345219851797677601}
-  - component: {fileID: 1913157673055852392}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -357,6 +356,7 @@ MonoBehaviour:
   followPlayer: 1
   distanceToFollowPlayer: 7
   attackStopDistance: 6.5
+  chaseSound: {fileID: 0}
 --- !u!65 &2861877794815640275
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -396,33 +396,6 @@ MonoBehaviour:
   attackRange: 7
   bulletForce: 20
   shootCooldown: 3
---- !u!54 &1913157673055852392
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3365923753357558757}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &3893395874437603631
 GameObject:
   m_ObjectHideFlags: 0

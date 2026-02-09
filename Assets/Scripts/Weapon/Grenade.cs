@@ -33,6 +33,11 @@ public class Grenade : MonoBehaviour
         Instantiate(explosionEffect, transform.position, transform.rotation);
         Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
         foreach (var coll in colliders) {
+            AI ai = coll.GetComponent<AI>();
+            if (ai != null)
+            {
+                ai.DestroyObject();
+            }
             Rigidbody rb = coll.GetComponent<Rigidbody>();
             if (rb != null) {
                 rb.AddExplosionForce(explosionForce *  10 , transform.position, radius);
@@ -54,6 +59,4 @@ public class Grenade : MonoBehaviour
 
         Destroy(gameObject, delay * 2f);
     }
-
-
 }

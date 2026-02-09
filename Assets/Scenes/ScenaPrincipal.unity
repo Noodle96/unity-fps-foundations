@@ -4786,6 +4786,10 @@ PrefabInstance:
       propertyPath: bulletPrefab
       value: 
       objectReference: {fileID: 1843449537369965697, guid: d08a09d7d3295084eb8a1651ff0e44fa, type: 3}
+    - target: {fileID: 2450562870255601466, guid: a952e6cda619e0b48a93ba7a3f8d611f, type: 3}
+      propertyPath: m_RenderPostProcessing
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3259359115843261260, guid: a952e6cda619e0b48a93ba7a3f8d611f, type: 3}
       propertyPath: cooldown
       value: 0.5
@@ -4856,6 +4860,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3579914508546830666, guid: a952e6cda619e0b48a93ba7a3f8d611f, type: 3}
       propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].outWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3644434244650728560, guid: a952e6cda619e0b48a93ba7a3f8d611f, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4327256841858605584, guid: a952e6cda619e0b48a93ba7a3f8d611f, type: 3}

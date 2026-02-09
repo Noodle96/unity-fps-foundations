@@ -95,4 +95,8 @@ public class AI : MonoBehaviour
         lastIndex = newIndex;
         return newIndex;
     }
+
+     public void DestroyObject() { 
+        Destroy(gameObject);
+    }
 }
