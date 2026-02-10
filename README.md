@@ -554,6 +554,27 @@ Extensión del sistema de animaciones del personaje incorporando animaciones de 
 
 ---
 
+### ✅ Capítulo 31-32 – Configuración de manos con IK (Inverse Kinematics)
+
+Implementación de un sistema de Inverse Kinematics para las manos del personaje utilizando el Animation Rigging Package, permitiendo que las manos se ajusten dinámicamente a la posición del arma.
+
+#### Características:
+- Instalación y uso del paquete **Animation Rigging**
+- Creación de un `Rig` dentro del personaje para controlar IK
+- Configuración de IK independiente para mano derecha e izquierda
+- Uso del componente `Two Bone IK Constraint`
+- Asignación de `Root`, `Mid` y `Tip` correspondientes a los huesos del brazo
+- Uso de objetos `Target` para posicionar las manos sobre el arma
+- Ajuste dinámico de la posición de las manos según el arma equipada
+- Base preparada para soportar múltiples armas con diferentes puntos de agarre
+
+#### Scripts / Componentes:
+- `Unity.Animation.Rigging` (package)
+- `Two Bone IK Constraint`
+- `Rig` (Animation Rigging)
+
+---
+
 
 
 ## 🛠️ Tecnologías utilizadas
