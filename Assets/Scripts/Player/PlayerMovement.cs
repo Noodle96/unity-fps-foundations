@@ -52,24 +52,29 @@ public class PlayerMovement : MonoBehaviour
         float z = Input.GetAxis("Vertical");
 
         // Setear las animaciones
-        //animator.SetFloat("VelX", x);
-        //animator.SetFloat("VelZ", z);
+        animator.SetFloat("VelX", x);
+        animator.SetFloat("VelZ", z);
 
-        Vector3 inputDirection = new Vector3(x, 0, z);
-        Vector3 localDirection = transform.InverseTransformDirection(inputDirection);
+        //Vector3 inputDirection = new Vector3(x, 0, z);
+        //Vector3 localDirection = transform.InverseTransformDirection(inputDirection);
 
-        animator.SetFloat("VelX", localDirection.x);
-        animator.SetFloat("VelZ", localDirection.z);
+        //animator.SetFloat("VelX", localDirection.x);
+        //animator.SetFloat("VelZ", localDirection.z);
+        animator.SetBool("isRunning", isRunning);
 
         Vector3 move = transform.right * x + transform.forward * z;
         RunCheck();
         // Apply movement
         characterController.Move(move * speed * Time.deltaTime * runningSpeed);
 
-
+        // JUMPING
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded) { 
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            animator.SetBool("isJumping", true);
             Debug.Log("Player jumped.");
+        }
+        if (!isGrounded && velocity.y <= 0f) {
+            animator.SetBool("isJumping", false);
         }
 
 

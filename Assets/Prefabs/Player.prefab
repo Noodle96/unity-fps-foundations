@@ -328,6 +328,7 @@ MonoBehaviour:
   isRunning: 0
   runningSpeedMultiplier: 2
   staminaUseAmount: 5
+  animator: {fileID: 0}
 --- !u!114 &5040817757076070187
 MonoBehaviour:
   m_ObjectHideFlags: 0
