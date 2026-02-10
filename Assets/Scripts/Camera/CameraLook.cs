@@ -20,7 +20,7 @@ public class CameraLook : MonoBehaviour
         playerBody.Rotate(Vector3.up * mouseX);
 
         xRotation += mouseY;
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+        xRotation = Mathf.Clamp(xRotation, -20f, 20f);
 
         transform.localRotation = Quaternion.Euler(-xRotation, 0f, 0f);
     }
