@@ -513,6 +513,31 @@ Implementación de daño a enemigos mediante explosiones de granadas y creación
 - `Assets/Scripts/Pickups/FloatingObject.cs`
 - `Assets/Scripts/Weapons/Grenade.cs`
 
+---
+
+### ✅ Capítulo 28-29 – Animación de personaje con Blend Tree (locomoción básica)
+
+Integración de un personaje animado utilizando animaciones de Mixamo y un sistema de locomoción basado en `Blend Tree`, permitiendo transiciones suaves entre idle, caminar y desplazamientos laterales.
+
+#### Características:
+- Importación de personaje y animaciones desde Mixamo
+- Configuración del Rig como Humanoid y uso de un Avatar compartido
+- Creación de un `Animator Controller` con `Blend Tree`
+- Uso de parámetros `VelX` y `VelZ` para controlar la animación
+- Implementación de un `Blend Tree 2D Freeform Directional`
+- Animaciones configuradas para idle, caminar adelante, atrás y strafe
+- Corrección de animación continua desactivando `Motion Time` en el Blend Tree
+- Integración de las animaciones con el movimiento del jugador
+- Separación entre lógica de movimiento y lógica de animación
+
+#### Scripts:
+- `Assets/Scripts/Player/PlayerMovement.cs`
+
+---
+
+
+
+
 
 ## 🛠️ Tecnologías utilizadas
 - Unity

@@ -20,6 +20,9 @@ public class PlayerMovement : MonoBehaviour
     public float staminaUseAmount = 5f;
     private RunningSliderUI runningSlider;
 
+    [Header("Animator")]
+    public Animator animator;
+
 
     Vector3 velocity;
     private void Start()
@@ -47,6 +50,17 @@ public class PlayerMovement : MonoBehaviour
         
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
+
+        // Setear las animaciones
+        //animator.SetFloat("VelX", x);
+        //animator.SetFloat("VelZ", z);
+
+        Vector3 inputDirection = new Vector3(x, 0, z);
+        Vector3 localDirection = transform.InverseTransformDirection(inputDirection);
+
+        animator.SetFloat("VelX", localDirection.x);
+        animator.SetFloat("VelZ", localDirection.z);
+
         Vector3 move = transform.right * x + transform.forward * z;
         RunCheck();
         // Apply movement
