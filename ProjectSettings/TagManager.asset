@@ -8,6 +8,7 @@ TagManager:
   - GunAmmo
   - DeathFloor
   - EnemyBullet
+  - HealthObject
   layers:
   - Default
   - TransparentFX

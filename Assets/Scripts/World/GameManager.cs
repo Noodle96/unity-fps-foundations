@@ -49,4 +49,7 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+    public void AddHealth(int health) { 
+        this.playerHealth += health;
+    }
 }

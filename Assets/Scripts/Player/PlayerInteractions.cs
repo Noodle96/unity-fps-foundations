@@ -20,6 +20,12 @@ public class PlayerInteractions : MonoBehaviour
 
             Destroy(other.gameObject);
         }
+        if (other.gameObject.CompareTag("HealthObject")) {
+            int h = other.gameObject.GetComponent<HealthObject>().health;
+            GameManager.Instance.AddHealth(h);
+            Destroy(other.gameObject);
+
+        }
 
         if (other.gameObject.CompareTag("DeathFloor")) {
             GameManager.Instance.LoseHealth(50);
