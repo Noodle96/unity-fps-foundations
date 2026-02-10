@@ -535,7 +535,24 @@ Integración de un personaje animado utilizando animaciones de Mixamo y un siste
 
 ---
 
+### ✅ Capítulo 30 – Animaciones de correr y saltar
 
+Extensión del sistema de animaciones del personaje incorporando animaciones de correr y saltar, integradas con el sistema de movimiento y el `Animator Controller`.
+
+#### Características:
+- Creación de un nuevo `Blend Tree` para animaciones de correr
+- Transiciones controladas entre caminar y correr mediante el parámetro `isRunning`
+- Implementación de una animación de salto independiente
+- Uso de `Any State` para iniciar el salto desde cualquier estado
+- Control del estado de salto mediante el parámetro `isJumping`
+- Corrección de la lógica de salto para mantener la animación activa durante el tiempo en el aire
+- Transiciones limpias entre salto, caminar y correr al aterrizar
+- Integración directa con el sistema de movimiento del jugador
+
+#### Scripts:
+- `Assets/Scripts/Player/PlayerMovement.cs`
+
+---
 
 
 
