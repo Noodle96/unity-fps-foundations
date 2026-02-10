@@ -494,6 +494,24 @@ Implementación de un sistema de cambio dinámico entre cámara en primera perso
 
 ---
 
+### ✅ Capítulo 27.1 – Daño por granadas y pickups de vida
+
+Implementación de daño a enemigos mediante explosiones de granadas y creación de un sistema de pickups de vida con animación flotante para el jugador.
+
+#### Características:
+- Aplicación de daño a enemigos dentro del radio de explosión de la granada
+- Uso de colliders y `OnTriggerEnter` para detección de pickups
+- Creación de un objeto de vida (`HealthObject`) que incrementa la salud del jugador
+- Configuración del pickup de vida mediante `BoxCollider` con `isTrigger`
+- Integración del sistema de vida con el `GameManager`
+- Implementación de una animación flotante continua para pickups usando funciones trigonométricas
+- Limpieza del objeto pickup tras ser recolectado
+
+#### Scripts:
+- `Assets/Scripts/Player/PlayerInteractions.cs`
+- `Assets/Scripts/Pickups/HealthObject.cs`
+- `Assets/Scripts/Pickups/FloatingObject.cs`
+- `Assets/Scripts/Weapons/Grenade.cs`
 
 
 ## 🛠️ Tecnologías utilizadas
