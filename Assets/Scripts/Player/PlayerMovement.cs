@@ -23,8 +23,10 @@ public class PlayerMovement : MonoBehaviour
     [Header("Animator")]
     public Animator animator;
 
-
     Vector3 velocity;
+    private Transform currentPlatform;
+
+
     private void Start()
     {
         //Debug.Log("PlayerMovement script has started.");
@@ -65,10 +67,14 @@ public class PlayerMovement : MonoBehaviour
         Vector3 move = transform.right * x + transform.forward * z;
         RunCheck();
         // Apply movement
-        characterController.Move(move * speed * Time.deltaTime * runningSpeed);
+        // [Antes]
+        //characterController.Move(move * speed * Time.deltaTime * runningSpeed);
+        Vector3 horizontalMove = move * speed * runningSpeed;
 
         // JUMPING
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded) { 
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded) {
+            transform.parent = null;
+            currentPlatform = null;
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
             animator.SetBool("isJumping", true);
             Debug.Log("Player jumped.");
@@ -77,10 +83,20 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("isJumping", false);
         }
 
+        if (!isGrounded)
+        {
+            transform.parent = null;
+            currentPlatform = null;
+        }
+
 
         // Apply gravity
         velocity.y += gravity * Time.deltaTime;
-        characterController.Move(velocity * Time.deltaTime);
+
+        // [ANTES]
+        //characterController.Move(velocity * Time.deltaTime);
+        Vector3 finalMove = horizontalMove + velocity;
+        characterController.Move(finalMove * Time.deltaTime);
     }
 
     public void RunCheck() {
@@ -112,6 +128,13 @@ public class PlayerMovement : MonoBehaviour
 
         runningSlider.SetRunning(isRunning);
         runningSpeed = isRunning ? runningSpeedMultiplier : 1f;
-
+    }
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if (hit.collider.GetComponent<FloatingObject>() != null && hit.moveDirection.y < 0)
+        {
+            currentPlatform = hit.collider.transform;
+            transform.parent = currentPlatform;
+        }
     }
 }
