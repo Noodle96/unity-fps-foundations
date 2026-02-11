@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: f84d8719e40fbf1469ae5d0cf8f9903e
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 178718
+  packageName: Stylized Rocket Launcher Complete Kit with Visual Effects and Sound
+    - Hand Painted Bazooka - HQ Toon Weapon Set
+  packageVersion: 1.0
+  assetPath: Assets/BigRookGames/Scripts/Weapons/ProjectileController.cs
+  uploadId: 389310

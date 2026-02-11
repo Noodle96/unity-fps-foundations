@@ -1304,11 +1304,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7665155257095493920, guid: 083c70f2bcc73584b843b843b479afcc, type: 3}
   m_PrefabInstance: {fileID: 9012843068675272865}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &6418721680590633619 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2596303575169157682, guid: 083c70f2bcc73584b843b843b479afcc, type: 3}
-  m_PrefabInstance: {fileID: 9012843068675272865}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8636992056535278722 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 777099114803156003, guid: 083c70f2bcc73584b843b843b479afcc, type: 3}
@@ -1329,8 +1324,9 @@ MonoBehaviour:
   weaponIcon: {fileID: 0}
   maxAmmo: 30
   currentAmmo: 0
-  cooldown: 0.5
-  grenadeSpawnPoint: {fileID: 6418721680590633619}
-  grenadePrefab: {fileID: 777099114803156003, guid: 083c70f2bcc73584b843b843b479afcc, type: 3}
+  fireRate: 0.2
+  throwPoint: {fileID: 0}
+  throwablePrefab: {fileID: 0}
   throwForce: 5
   upwardForce: 5
+  throwSound: {fileID: 0}

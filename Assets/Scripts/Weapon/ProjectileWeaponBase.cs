@@ -65,6 +65,7 @@ public abstract class ProjectileWeaponBase : WeaponBase
             rb.useGravity = false;
             rb.linearVelocity = finalDir * projectileSpeed;
         }
+        Destroy( proj, 5f );
     }
 
     protected void PlaySound()
