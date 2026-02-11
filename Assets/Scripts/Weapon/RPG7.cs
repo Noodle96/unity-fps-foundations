@@ -10,7 +10,7 @@ public class RPG7 : ProjectileWeaponBase
 
         fireRate = 1.2f;        // tiempo entre disparos
         projectileSpeed = 35f;  // cohete lento
-        maxAmmo = 5;
+        maxAmmo = 30;
         currentAmmo = maxAmmo;
     }
 }

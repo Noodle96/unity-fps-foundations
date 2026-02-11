@@ -30,7 +30,7 @@ public class Grenade : MonoBehaviour
     }
 
     private void Explote() {
-        Instantiate(explosionEffect, transform.position, transform.rotation);
+        GameObject go = Instantiate(explosionEffect, transform.position, transform.rotation);
         Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
         foreach (var coll in colliders) {
             AI ai = coll.GetComponent<AI>();
@@ -58,5 +58,6 @@ public class Grenade : MonoBehaviour
         gameObject.GetComponent<SphereCollider>().enabled = false;
 
         Destroy(gameObject, delay * 2f);
+        Destroy(go, delay * 2f);
     }
 }

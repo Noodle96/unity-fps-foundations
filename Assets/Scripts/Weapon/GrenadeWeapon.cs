@@ -114,9 +114,21 @@ using UnityEngine;
 
 public class GrenadeWeapon : ThrowableWeaponBase
 {
-    public override bool IsAutomatic => false;
-    // Aquí luego puedes:
-    // - cambiar fuerza
-    // - cambiar ángulo
-    // - añadir animación
+    //[Header("Animation")]
+    //[SerializeField] private Animator playerAnimator;
+    //[SerializeField] private string throwTriggerName = "ThrowGrenade";
+
+    //public override bool IsAutomatic => false;
+
+    //protected override void Use()
+    //{
+    //    // NO lanzar todavía
+    //    playerAnimator.SetTrigger(throwTriggerName);
+    //}
+
+    //// Este método será llamado desde la animación
+    //public void SpawnGrenade()
+    //{
+    //    base.Use(); // ahora sí ejecuta Throw()
+    //}
 }

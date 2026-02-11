@@ -8,14 +8,22 @@ public class Rocket : MonoBehaviour
     [Header("Explosion")]
     [SerializeField] private float explosionRadius = 6f;
     [SerializeField] private float explosionForce = 800f;
-    [SerializeField] private float damage = 100f;
+    [SerializeField] private float damage = 25f;
     [SerializeField] private LayerMask damageMask;
 
     [Header("VFX")]
     [SerializeField] private GameObject explosionVFX;
     [SerializeField] private MeshRenderer rocketMesh;
 
+    [SerializeField] private float maxLifetime = 8f;
+
+
     private bool exploded;
+
+    private void Start()
+    {
+        Destroy(gameObject, maxLifetime);
+    }
 
     private void Update()
     {
@@ -63,11 +71,11 @@ public class Rocket : MonoBehaviour
             // Apply damage (if enemy has Health script)
 
 
-            //Health health = col.GetComponent<Health>();
-            //if (health != null)
-            //{
-            //    health.TakeDamage(damage);
-            //}
+            HealthEnemy health = col.GetComponent<HealthEnemy>();
+            if (health != null)
+            {
+                health.TakeDamage(damage);
+            }
         }
 
         if (rocketMesh != null)

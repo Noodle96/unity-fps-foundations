@@ -98,7 +98,7 @@ MonoBehaviour:
   speed: 25
   explosionRadius: 6
   explosionForce: 800
-  damage: 100
+  damage: 25
   damageMask:
     serializedVersion: 2
     m_Bits: 1
