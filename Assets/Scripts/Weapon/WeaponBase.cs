@@ -9,13 +9,14 @@ public abstract class WeaponBase : MonoBehaviour
     [SerializeField] protected int maxAmmo = 30;
     [SerializeField] protected int currentAmmo;
 
-    [Header("Cooldown")]
-    [SerializeField] protected float cooldown = 0.5f;
+    [Header("Fire Rate")]
+    [SerializeField] protected float fireRate = 0.2f; // tiempo entre disparos
+    
+    public virtual bool IsAutomatic => false;
 
-    protected float lastUseTime = -Mathf.Infinity;
+    protected float nextFireTime;
 
     // ---------- PROPERTIES ----------
-
     public Sprite Icon => weaponIcon;
     public int Ammo => currentAmmo;
 
@@ -23,59 +24,39 @@ public abstract class WeaponBase : MonoBehaviour
     {
         get
         {
-            float elapsed = Time.time - lastUseTime;
-            return Mathf.Clamp01(elapsed / cooldown);
+            float remaining = Mathf.Max(0, nextFireTime - Time.time);
+            return 1f - (remaining / fireRate);
         }
     }
 
     // ---------- LIFECYCLE ----------
-
     protected virtual void Awake()
     {
         currentAmmo = maxAmmo;
+        nextFireTime = 0f;
     }
 
     // ---------- PUBLIC API ----------
-
-    public void TryUse()
+    public bool TryUse()
     {
-        if (!CanUse()) return;
+        if (!CanUse()) return false;
 
-        if (IsContinuous)
-        {
-            StartUse();
-        }
-        else
-        {
-            Use();
-            currentAmmo--;
-            lastUseTime = Time.time;
-        }
-    }
-
-    public virtual bool CanUse()
-    {
-        if (currentAmmo <= 0) return false;
-        if (!IsContinuous && Time.time < lastUseTime + cooldown) return false;
+        Use();
+        currentAmmo--;
+        nextFireTime = Time.time + fireRate;
         return true;
     }
 
-    // ---------- EXTENSION POINTS ----------
-
-    protected virtual bool IsContinuous => false;
-
-    public void ForceStopUse()
+    protected virtual bool CanUse()
     {
-        StopUse();
+        if (currentAmmo <= 0) return false;
+        if (Time.time < nextFireTime) return false;
+        return true;
     }
-
-    protected virtual void StartUse() { }
-    protected virtual void StopUse() { }
 
     protected abstract void Use();
 
     // ---------- SELECTION ----------
-
     public virtual void OnSelect()
     {
         gameObject.SetActive(true);
@@ -83,7 +64,6 @@ public abstract class WeaponBase : MonoBehaviour
 
     public virtual void OnDeselect()
     {
-        StopUse();
         gameObject.SetActive(false);
     }
 

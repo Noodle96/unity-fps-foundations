@@ -8,11 +8,14 @@ public class WeaponController : MonoBehaviour
     [SerializeField] private Transform weaponsPanel;
     [SerializeField] private WeaponSlotUI weaponSlotPrefab;
 
-    private List<WeaponSlotUI> weaponSlots = new List<WeaponSlotUI>();
+    //private List<WeaponSlotUI> weaponSlots = new List<WeaponSlotUI>();
+    private List<WeaponSlotUI> weaponSlots = new();
+
 
 
     [Header("Weapons")]
-    [SerializeField] private List<WeaponBase> weapons = new List<WeaponBase>();
+    //[SerializeField] private List<WeaponBase> weapons = new List<WeaponBase>();
+    [SerializeField] private List<WeaponBase> weapons = new();
 
     private int currentWeaponIndex = 0;
     public WeaponBase CurrentWeapon => weapons[currentWeaponIndex];
@@ -44,24 +47,23 @@ public class WeaponController : MonoBehaviour
 
     private void HandleWeaponUse()
     {
-        if (Mouse.current == null) return;
+        if (Mouse.current == null && CurrentWeapon == null) return;
 
-        // Click inicial
-        if (Mouse.current.leftButton.wasPressedThisFrame)
+        if (CurrentWeapon.IsAutomatic)
         {
-            CurrentWeapon.TryUse();
+            // Automáticas: mantener presionado
+            if (Mouse.current.leftButton.isPressed)
+            {
+                CurrentWeapon.TryUse();
+            }
         }
-
-        // Mantener presionado (Laser)
-        if (Mouse.current.leftButton.isPressed)
+        else
         {
-            CurrentWeapon.TryUse();
-        }
-
-        // Soltar
-        if (Mouse.current.leftButton.wasReleasedThisFrame)
-        {
-            CurrentWeapon.ForceStopUse();
+            // Semi / single-shot
+            if (Mouse.current.leftButton.wasPressedThisFrame)
+            {
+                CurrentWeapon.TryUse();
+            }
         }
     }
 
@@ -79,7 +81,6 @@ public class WeaponController : MonoBehaviour
 
     private void SwitchToNextWeapon()
     {
-        weapons[currentWeaponIndex].ForceStopUse();
         weapons[currentWeaponIndex].OnDeselect();
         weaponSlots[currentWeaponIndex].SetActive(false);
 

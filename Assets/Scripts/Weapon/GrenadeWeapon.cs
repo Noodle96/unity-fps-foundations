@@ -77,34 +77,46 @@
 //}
 
 
+//using UnityEngine;
+
+//public class GrenadeWeapon : WeaponBase
+//{
+//    [Header("Grenade References")]
+//    [SerializeField] private Transform grenadeSpawnPoint;
+//    [SerializeField] private GameObject grenadePrefab;
+
+//    [Header("Throw Settings")]
+//    [SerializeField] private float throwForce = 15f;
+//    [SerializeField] private float upwardForce = 3f;
+
+//    protected override void Use()
+//    {
+//        GameObject grenade = Instantiate(
+//            grenadePrefab,
+//            grenadeSpawnPoint.position,
+//            grenadeSpawnPoint.rotation
+//        );
+
+//        Rigidbody rb = grenade.GetComponent<Rigidbody>();
+//        if (rb != null)
+//        {
+//            Vector3 throwDirection =
+//                grenadeSpawnPoint.forward * throwForce +
+//                grenadeSpawnPoint.up * upwardForce;
+
+//            rb.AddForce(throwDirection, ForceMode.Impulse);
+//        }
+//    }
+//}
+
+
 using UnityEngine;
 
-public class GrenadeWeapon : WeaponBase
+public class GrenadeWeapon : ThrowableWeaponBase
 {
-    [Header("Grenade References")]
-    [SerializeField] private Transform grenadeSpawnPoint;
-    [SerializeField] private GameObject grenadePrefab;
-
-    [Header("Throw Settings")]
-    [SerializeField] private float throwForce = 15f;
-    [SerializeField] private float upwardForce = 3f;
-
-    protected override void Use()
-    {
-        GameObject grenade = Instantiate(
-            grenadePrefab,
-            grenadeSpawnPoint.position,
-            grenadeSpawnPoint.rotation
-        );
-
-        Rigidbody rb = grenade.GetComponent<Rigidbody>();
-        if (rb != null)
-        {
-            Vector3 throwDirection =
-                grenadeSpawnPoint.forward * throwForce +
-                grenadeSpawnPoint.up * upwardForce;
-
-            rb.AddForce(throwDirection, ForceMode.Impulse);
-        }
-    }
+    public override bool IsAutomatic => false;
+    // Aquí luego puedes:
+    // - cambiar fuerza
+    // - cambiar ángulo
+    // - añadir animación
 }

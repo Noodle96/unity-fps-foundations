@@ -1,50 +1,10 @@
 using UnityEngine;
 
-public class M4_8 : WeaponBase
+public class M4_8 : ProjectileWeaponBase
 {
-    [Header("M4_8 References")]
-    [SerializeField] private Transform spawnPoint;
-    [SerializeField] private GameObject bulletPrefab;
+    public override bool IsAutomatic => true;
 
-    [Header("Gun Settings")]
-    [SerializeField] private float shotForce = 1500f;
-
-    [Header("Sound")]
-    [SerializeField] private AudioClip shootSound;
-
-    private AudioSource audioSource;
-
-    protected override void Awake()
-    {
-        base.Awake(); // Inicializa munición desde WeaponBase
-        audioSource = GetComponent<AudioSource>();
-    }
-
-    /// <summary>
-    /// Implementación específica del disparo
-    /// </summary>
-    protected override void Use()
-    {
-        // Sonido
-        if (audioSource != null && shootSound != null)
-        {
-            audioSource.PlayOneShot(shootSound);
-        }
-
-        // Crear bala
-        GameObject newBullet = Instantiate(
-            bulletPrefab,
-            spawnPoint.position,
-            spawnPoint.rotation
-        );
-
-        // Aplicar fuerza
-        Rigidbody rb = newBullet.GetComponent<Rigidbody>();
-        if (rb != null)
-        {
-            rb.AddForce(spawnPoint.forward * shotForce);
-        }
-
-        Destroy(newBullet, 5f);
-    }
+    // Solo ajustas valores:
+    // fireRate = 0.08f
+    // projectileSpeed = más alto
 }
