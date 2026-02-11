@@ -106,6 +106,9 @@ public class Gun : WeaponBase
     [Header("Sound")]
     [SerializeField] private AudioClip shootSound;
 
+    [SerializeField] private CrosshairRaycast crosshairSystem;
+
+
     private AudioSource audioSource;
 
     protected override void Awake()
@@ -132,11 +135,17 @@ public class Gun : WeaponBase
             spawnPoint.rotation
         );
 
+        // Direccion de la camera
+        Vector3 dir = (crosshairSystem.AimWorldPoint - spawnPoint.position).normalized;
+
+
         // Aplicar fuerza
         Rigidbody rb = newBullet.GetComponent<Rigidbody>();
         if (rb != null)
         {
-            rb.AddForce(spawnPoint.forward * shotForce);
+            //rb.AddForce(spawnPoint.forward * shotForce);
+            rb.AddForce(dir * shotForce);
+
         }
 
         Destroy(newBullet, 5f);
