@@ -9,6 +9,7 @@ public class FloatingObject : MonoBehaviour
 
     [Tooltip("Velocidad de oscilación")]
     public float floatSpeed = 2f;
+    public float rotateSpeed = 60f;
 
     [Header("Phase Settings")]
     [Tooltip("0 = normal, PI = invertido")]
@@ -29,6 +30,9 @@ public class FloatingObject : MonoBehaviour
 
         float yOffset = Mathf.Sin(timeCounter * floatSpeed + phaseOffset) * floatAmplitude;
         transform.position = startPosition + Vector3.up * yOffset;
+
+        transform.Rotate(Vector3.up * rotateSpeed * Time.deltaTime);
+
 
     }
 }

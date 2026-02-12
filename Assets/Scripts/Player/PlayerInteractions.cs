@@ -22,13 +22,16 @@ public class PlayerInteractions : MonoBehaviour
         }
         if (other.gameObject.CompareTag("HealthObject")) {
             int h = other.gameObject.GetComponent<HealthObject>().health;
-            GameManager.Instance.AddHealth(h);
+            GetComponent<PlayerHealth>().AddReserveHealth(h);
+            //GameManager.Instance.AddHealth(h);
             Destroy(other.gameObject);
 
         }
 
         if (other.gameObject.CompareTag("DeathFloor")) {
-            GameManager.Instance.LoseHealth(50);
+            //GameManager.Instance.LoseHealth(50);
+            GetComponent<PlayerHealth>().TakeDamage(50);
+            
             GetComponent<CharacterController>().enabled = false;
             transform.position = startPlayerPosition.position;
             GetComponent<CharacterController>().enabled = true;
@@ -39,7 +42,8 @@ public class PlayerInteractions : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("EnemyBullet")) {
             // Cuando un EnemyBullet choca con el Player, este pierde vida en X puntos
-            GameManager.Instance.LoseHealth(10);
+            //GameManager.Instance.LoseHealth(10);
+            GetComponent<PlayerHealth>().TakeDamage(50);
         }
     }
 }

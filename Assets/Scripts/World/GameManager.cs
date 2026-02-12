@@ -6,9 +6,6 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
-    [Header("Player Stats")]
-    [SerializeField] private int playerHealth = 100;
-    [SerializeField] private TextMeshProUGUI healthText;
 
     private void Awake()
     {
@@ -23,33 +20,6 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (healthText != null)
-        {
-            healthText.text = playerHealth.ToString();
-        }
-    }
-
-    // ---------- HEALTH ----------
-
-    public void LoseHealth(int amount)
-    {
-        playerHealth -= amount;
-        CheckHealth();
-    }
-
-    private void CheckHealth()
-    {
-        if (playerHealth <= 0)
-        {
-            ReloadScene();
-        }
-    }
-
-    private void ReloadScene()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
-    public void AddHealth(int health) { 
-        this.playerHealth += health;
+       
     }
 }
