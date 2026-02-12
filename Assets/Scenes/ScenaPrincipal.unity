@@ -6355,6 +6355,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1843449537369965697, guid: d08a09d7d3295084eb8a1651ff0e44fa, type: 3}
     - target: {fileID: 1519299638752271003, guid: a952e6cda619e0b48a93ba7a3f8d611f, type: 3}
+      propertyPath: fillSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1519299638752271003, guid: a952e6cda619e0b48a93ba7a3f8d611f, type: 3}
       propertyPath: mainHealthText
       value: 
       objectReference: {fileID: 1992442247}

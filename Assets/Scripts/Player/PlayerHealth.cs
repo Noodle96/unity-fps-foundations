@@ -2,6 +2,8 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.Collections;
+
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -19,13 +21,38 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private TextMeshProUGUI mainHealthText;
     [SerializeField] private TextMeshProUGUI reserveHealthText;
 
+    private float visualMainHealth;
+    private float visualReserveHealth;
+    private bool isMainIncreasing;
+    private bool isReserveIncreasing;
+    private Image mainFillImage;
+    private Image reserveFillImage;
+    private Color mainBaseColor;
+    private Color reserveBaseColor;
+
+    [SerializeField] private float fillSpeed = 150f;
+
     private void Start()
     {
         currentMainHealth = Mathf.Clamp(currentMainHealth, 0, maxMainHealth);
         currentReserveHealth = Mathf.Clamp(currentReserveHealth, 0, maxReserveHealth);
 
+        visualMainHealth = currentMainHealth;
+        visualReserveHealth = currentReserveHealth;
+
+        mainFillImage = mainHealthSlider.fillRect.GetComponent<Image>();
+        reserveFillImage = reserveHealthSlider.fillRect.GetComponent<Image>();
+
+        mainBaseColor = mainFillImage.color;
+        reserveBaseColor = reserveFillImage.color;
+
         ConfigureSliders();
         UpdateUI();
+    }
+
+    private void Update()
+    {
+        AnimateHealthBars();
     }
 
     private void ConfigureSliders()
@@ -91,15 +118,66 @@ public class PlayerHealth : MonoBehaviour
 
     private void UpdateUI()
     {
-        if (mainHealthSlider != null) mainHealthSlider.value = currentMainHealth;
-        if (reserveHealthSlider != null) reserveHealthSlider.value = currentReserveHealth;
+        //if (mainHealthSlider != null) mainHealthSlider.value = currentMainHealth;
+        //if (reserveHealthSlider != null) reserveHealthSlider.value = currentReserveHealth;
 
-        if (mainHealthText != null) mainHealthText.text = $"{currentMainHealth}/{maxMainHealth}";
-        if (reserveHealthText != null) reserveHealthText.text = $"{currentReserveHealth}/{maxReserveHealth}";
+        //if (mainHealthText != null) mainHealthText.text = $"{currentMainHealth}/{maxMainHealth}";
+        //if (reserveHealthText != null) reserveHealthText.text = $"{currentReserveHealth}/{maxReserveHealth}";
     }
 
     private void Die()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    private void AnimateHealthBars()
+    {
+        isMainIncreasing = visualMainHealth < currentMainHealth;
+        isReserveIncreasing = visualReserveHealth < currentReserveHealth;
+
+        visualMainHealth = Mathf.MoveTowards(
+            visualMainHealth,
+            currentMainHealth,
+            fillSpeed * Time.deltaTime
+        );
+
+        visualReserveHealth = Mathf.MoveTowards(
+            visualReserveHealth,
+            currentReserveHealth,
+            fillSpeed * Time.deltaTime
+        );
+
+        mainHealthSlider.value = visualMainHealth;
+        reserveHealthSlider.value = visualReserveHealth;
+
+        UpdateBarVisuals();
+        UpdateHealthTexts();
+    }
+
+    private void UpdateBarVisuals()
+    {
+        if (isMainIncreasing)
+        {
+            mainFillImage.color = Color.Lerp(mainBaseColor, Color.white, 0.4f);
+        }
+        else
+        {
+            mainFillImage.color = mainBaseColor;
+        }
+
+        if (isReserveIncreasing)
+        {
+            reserveFillImage.color = Color.Lerp(reserveBaseColor, Color.white, 0.4f);
+        }
+        else
+        {
+            reserveFillImage.color = reserveBaseColor;
+        }
+    }
+
+    private void UpdateHealthTexts()
+    {
+        mainHealthText.text = $"{Mathf.RoundToInt(visualMainHealth)}/{maxMainHealth}";
+        reserveHealthText.text = $"{Mathf.RoundToInt(visualReserveHealth)}/{maxReserveHealth}";
     }
 }
