@@ -260,10 +260,11 @@ MonoBehaviour:
   weaponIcon: {fileID: 0}
   maxAmmo: 30
   currentAmmo: 0
-  cooldown: 0.5
+  fireRate: 0.2
   spawnPoint: {fileID: 0}
-  bulletPrefab: {fileID: 0}
-  shotForce: 1500
+  projectilePrefab: {fileID: 0}
+  projectileSpeed: 50
+  crosshairSystem: {fileID: 0}
   shootSound: {fileID: 0}
 --- !u!82 &2161180798788078948
 AudioSource:

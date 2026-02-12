@@ -21,6 +21,16 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private TextMeshProUGUI mainHealthText;
     [SerializeField] private TextMeshProUGUI reserveHealthText;
 
+    [Header("Damage Overlay")]
+    [SerializeField] private Image damageOverlay;
+    [SerializeField] private float damageFlashDuration = 0.3f;
+    [SerializeField] private float damageMaxAlpha = 0.4f;
+
+    [Header("Audio")]
+    [SerializeField] private AudioClip hurtSound;
+
+    private Coroutine damageCoroutine;
+
     private float visualMainHealth;
     private float visualReserveHealth;
     private bool isMainIncreasing;
@@ -79,6 +89,11 @@ public class PlayerHealth : MonoBehaviour
         currentMainHealth -= amount;
         currentMainHealth = Mathf.Max(0, currentMainHealth);
 
+        if (hurtSound != null)
+        {
+            AudioSource.PlayClipAtPoint(hurtSound, transform.position);
+        }
+
         AutoRefillMainHealth();
 
         UpdateUI();
@@ -87,6 +102,11 @@ public class PlayerHealth : MonoBehaviour
         {
             Die();
         }
+
+        if (damageCoroutine != null)
+            StopCoroutine(damageCoroutine);
+
+        damageCoroutine = StartCoroutine(DamageFlash());
     }
 
     public void AddReserveHealth(int amount)
@@ -180,4 +200,35 @@ public class PlayerHealth : MonoBehaviour
         mainHealthText.text = $"{Mathf.RoundToInt(visualMainHealth)}/{maxMainHealth}";
         reserveHealthText.text = $"{Mathf.RoundToInt(visualReserveHealth)}/{maxReserveHealth}";
     }
+
+
+    private IEnumerator DamageFlash()
+    {
+        float timer = 0f;
+
+        // Fade In rápido
+        while (timer < damageFlashDuration / 2f)
+        {
+            float alpha = Mathf.Lerp(0f, damageMaxAlpha, timer / (damageFlashDuration / 2f));
+            damageOverlay.color = new Color(1f, 0f, 0f, alpha);
+
+            timer += Time.deltaTime;
+            yield return null;
+        }
+
+        timer = 0f;
+
+        // Fade Out
+        while (timer < damageFlashDuration)
+        {
+            float alpha = Mathf.Lerp(damageMaxAlpha, 0f, timer / damageFlashDuration);
+            damageOverlay.color = new Color(1f, 0f, 0f, alpha);
+
+            timer += Time.deltaTime;
+            yield return null;
+        }
+
+        damageOverlay.color = new Color(1f, 0f, 0f, 0f);
+    }
+
 }

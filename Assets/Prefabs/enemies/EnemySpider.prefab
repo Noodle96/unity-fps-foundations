@@ -391,7 +391,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae4379fa58443124cbc03af82456b57a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyBullet: {fileID: 0}
+  enemyBullet: {fileID: 1383223317825110512, guid: 0941efde9a661164f90567dc16312215, type: 3}
   spawnBulletPoint: {fileID: 0}
   playerPosition: {fileID: 0}
   attackRange: 7

@@ -9,6 +9,8 @@ TagManager:
   - DeathFloor
   - EnemyBullet
   - HealthObject
+  - FxTemporaire
+  - PlayerBullet
   layers:
   - Default
   - TransparentFX
