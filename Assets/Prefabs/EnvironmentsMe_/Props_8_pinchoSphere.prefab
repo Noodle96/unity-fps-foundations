@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6155981470680100906}
   - component: {fileID: 8038208700678396234}
   m_Layer: 0
-  m_Name: Props_8_espina
+  m_Name: Props_8_pinchoSphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

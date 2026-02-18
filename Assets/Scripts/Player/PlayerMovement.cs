@@ -129,12 +129,23 @@ public class PlayerMovement : MonoBehaviour
         runningSlider.SetRunning(isRunning);
         runningSpeed = isRunning ? runningSpeedMultiplier : 1f;
     }
+
+    private float damageCooldown = 1f;
+    private float lastDamageTime = -999f;
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
         if (hit.collider.GetComponent<FloatingObject>() != null && hit.moveDirection.y < 0)
         {
             currentPlatform = hit.collider.transform;
             transform.parent = currentPlatform;
+        }
+        if (hit.collider.GetComponent<RollingLogHazard>())
+        {
+            if (Time.time - lastDamageTime > damageCooldown)
+            {
+                GetComponent<PlayerHealth>().TakeDamage(20);
+                lastDamageTime = Time.time;
+            }
         }
     }
 }

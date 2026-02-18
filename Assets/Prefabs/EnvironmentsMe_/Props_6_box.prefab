@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6422465297872444192}
   - component: {fileID: 6857681083496424557}
   m_Layer: 6
-  m_Name: Props_6_box_
+  m_Name: Props_6_box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
