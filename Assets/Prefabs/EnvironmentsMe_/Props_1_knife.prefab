@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1242528905608908957}
   - component: {fileID: 6969908020333592441}
   - component: {fileID: 5686293251109167682}
+  - component: {fileID: 7694652050415800543}
   m_Layer: 0
   m_Name: Props_1_knife
   m_TagString: Untagged
@@ -89,6 +90,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &7694652050415800543
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 172217303782348944}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.1518584, y: 1.0395787, z: 1.0841413}
+  m_Center: {x: -0.050000012, y: 0.5177988, z: 0}
 --- !u!1 &6391233746760414441
 GameObject:
   m_ObjectHideFlags: 0

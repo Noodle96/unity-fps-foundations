@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerInteractions : MonoBehaviour
 {
@@ -33,7 +34,8 @@ public class PlayerInteractions : MonoBehaviour
             GetComponent<PlayerHealth>().TakeDamage(50);
             
             GetComponent<CharacterController>().enabled = false;
-            transform.position = startPlayerPosition.position;
+            //transform.position = startPlayerPosition.position;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             GetComponent<CharacterController>().enabled = true;
         }
     }

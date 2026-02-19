@@ -26,6 +26,9 @@ public class PlayerMovement : MonoBehaviour
     Vector3 velocity;
     private Transform currentPlatform;
 
+    private bool wasLaunched = false;
+
+
 
     private void Start()
     {
@@ -45,6 +48,12 @@ public class PlayerMovement : MonoBehaviour
         {
             velocity.y = -2f; // Small negative value to keep the player grounded
             //Debug.Log("Player is grounded.");
+            if (wasLaunched)
+            {
+                velocity.x = 0f;
+                velocity.z = 0f;
+                wasLaunched = false;
+            }
         }
         else { 
             //Debug.Log("Player is not grounded.");
@@ -147,5 +156,10 @@ public class PlayerMovement : MonoBehaviour
                 lastDamageTime = Time.time;
             }
         }
+    }
+    public void ApplyExternalForce(Vector3 force)
+    {
+        velocity = force;
+        wasLaunched = true;
     }
 }
