@@ -156,6 +156,15 @@ public class PlayerMovement : MonoBehaviour
                 lastDamageTime = Time.time;
             }
         }
+        if (hit.collider.GetComponent<HammerHazard>())
+        {
+            if (Time.time - lastDamageTime > damageCooldown)
+            {
+                hit.collider.GetComponent<HammerHazard>().PlayOne();
+                GetComponent<PlayerHealth>().TakeDamage(20);
+                lastDamageTime = Time.time;
+            }
+        }
     }
     public void ApplyExternalForce(Vector3 force)
     {
