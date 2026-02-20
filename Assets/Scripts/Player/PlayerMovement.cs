@@ -143,8 +143,16 @@ public class PlayerMovement : MonoBehaviour
     private float lastDamageTime = -999f;
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
+        // Player se sube dentro de la plataforma cuadrada
         if (hit.collider.GetComponent<FloatingObject>() != null && hit.moveDirection.y < 0)
         {
+            currentPlatform = hit.collider.transform;
+            transform.parent = currentPlatform;
+        }
+        // Player se sube dentro de la plataforma balanza
+        if (hit.collider.GetComponent<BalancePlatformHazard>() != null && hit.moveDirection.y < 0)
+        {
+            Debug.Log("Dentro de la plataforma balanza");
             currentPlatform = hit.collider.transform;
             transform.parent = currentPlatform;
         }
