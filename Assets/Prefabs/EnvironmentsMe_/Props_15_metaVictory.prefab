@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8605471649702209886}
   - component: {fileID: 6938438827243609768}
   m_Layer: 0
-  m_Name: Props_15
+  m_Name: Props_15_metaVictory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -173,6 +173,14 @@ public class PlayerMovement : MonoBehaviour
                 lastDamageTime = Time.time;
             }
         }
+        //if (hit.collider.GetComponent<TrapMover>())
+        //{
+        //    if (Time.time - lastDamageTime > damageCooldown)
+        //    {
+        //        GetComponent<PlayerHealth>().TakeDamage(20);
+        //        lastDamageTime = Time.time;
+        //    }
+        //}
     }
     public void ApplyExternalForce(Vector3 force)
     {
