@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 7653699667013469932}
   - component: {fileID: 6077119268112649749}
   - component: {fileID: 7722278900654748487}
+  - component: {fileID: 6847336295963375421}
   m_Layer: 6
   m_Name: Props_12_balance
   m_TagString: Untagged
@@ -102,7 +103,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8118714852897901293}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e6d5abe7f0a0a9d4aa8cff7cc6b7375a, type: 3}
   m_Name: 
@@ -200,3 +201,19 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &6847336295963375421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8118714852897901293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66e01025a834d6944b65c180c702c76c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floatAmplitude: 0.5
+  floatSpeed: 2
+  rotateSpeed: 0
+  phaseOffset: 0
