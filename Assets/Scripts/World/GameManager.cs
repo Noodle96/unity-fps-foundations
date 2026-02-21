@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
+    [SerializeField] private GameObject winPanel;
 
 
     private void Awake()
@@ -21,5 +22,13 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
        
+    }
+
+    public void ShowWinPanel()
+    {
+        winPanel.SetActive(true);
+
+        // Opcional: detener tiempo
+        Time.timeScale = 0f;
     }
 }
