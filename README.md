@@ -108,8 +108,6 @@ En esta zona aparecen dos tipos de amenazas. La primera consiste en cuchillas ci
 
 ### 🏁 Desafío Final – Plataformas y Planchas Móviles
 
-🏁 Desafío Final – Plataformas y Planchas Móviles
-
 Antes de llegar a la meta, el jugador debe superar una plataforma que se mueve verticalmente, donde una caída implica reiniciar la vida. Tras ello, enfrenta el último obstáculo: dos grandes planchas que se desplazan en direcciones opuestas y también paralelas, cerrándose con fuerza al encontrarse. Si el jugador queda atrapado entre ellas, es aplastado y pierde vida, convirtiendo este tramo final en una prueba de precisión y sincronización.
 
 ![diez](./doc/img/10.png)
