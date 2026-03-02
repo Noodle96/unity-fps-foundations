@@ -1,12 +1,141 @@
 # FPS Controller – Unity (Learning Project)
+<p align="center">
+  <img src="./doc/img/1.png" width="1000"/>
+</p>
 
 ## 🎮 Descripción
-Proyecto FPS desarrollado en Unity como parte de un proceso de aprendizaje paso a paso.  
-El objetivo es construir un controlador FPS desde cero, entendiendo tanto la parte técnica (scripts) como la construcción del entorno (level design básico).
+Proyecto FPS-TPS desarrollado en Unity como parte de un proceso de aprendizaje paso a paso.  
+El objetivo es construir un controlador FPS-TPS desde cero, entendiendo tanto la parte técnica (scripts) como la construcción del entorno (level design básico).
 
 Este proyecto sigue un videotutorial dividido en múltiples capítulos, pero el foco está en **comprender y replicar los sistemas**, no solo copiarlos.
 
 ---
+
+## 🎯 Objetivo del Proyecto
+
+Este proyecto tiene como finalidad comprender la arquitectura de un juego FPS-TPS en Unity, implementando sistemas escalables como armas, enemigos, HUD dinámico, animaciones con Blend Tree, IK para manos y gestión de estados globales mediante un GameManager.
+
+## 🎮 Jugabilidad (Controles – PC)
+
+El juego está actualmente diseñado para jugarse en **PC**. En futuras versiones se considerará soporte para otros dispositivos.
+
+### 🕹️ Controles
+
+- **Movimiento:** `W`, `A`, `S`, `D`  
+  *(o flechas ↑ ↓ ← →)*  
+- **Saltar:** `Barra espaciadora`
+- **Correr (Sprint):** `Shift`
+- **Pausar juego:** `P`
+- **Cambiar de arma:** `Tab`
+
+Estos controles permiten desplazarse, superar obstáculos, enfrentar enemigos y avanzar a través de los distintos niveles del juego.
+
+---
+
+## 🎮 Screenshots
+
+### 🧱 ❤️ Sistema de Vida y Resistencia (HUD)
+
+El jugador cuenta con una barra de vida principal, una barra secundaria que se activa cuando la primera está completa, y una barra de resistencia que determina cuánto tiempo puede correr antes de agotarse, ofreciendo una gestión dinámica de supervivencia durante el combate. Además en la parte derecha se le muestra todas las armas disponibles que puede hacer uso para acabar con sus enemigos aéreos y terrestres, asi como la cantidad de municiones que tiene de cada una.
+
+![Escena Inicial](./doc/img/1.png)
+---
+
+### 🛸 Enemigo Flotante con Púas
+
+Este enemigo flota en el aire y está cubierto de púas, convirtiéndose en una amenaza constante mientras el jugador avanza. Si entra en contacto con él, pierde vida; sin embargo, puede ser derrotado utilizando el arma, lo que añade una alternativa ofensiva frente al peligro.
+
+![uno](./doc/img/16.png)
+---
+
+
+### ✨ Recolección de Vida
+
+Al recoger un elemento de vida (cruz verde), se activa un efecto visual de partículas y la salud del jugador aumenta instantáneamente, reforzando la sensación de recompensa y recuperación en medio del juego.
+
+![dos](./doc/img/2.png)
+---
+
+### 👾 Enemigos Aéreos y Terrestres
+
+En determinados niveles aparecen enemigos terrestres y aéreos que detectan al jugador cuando se encuentra a cierta distancia y comienzan a atacarlo, aumentando la presión y el desafío durante la exploración. El jugador puede hacer uso de sus armas(mientras tengo municiones) para deribarlos.
+
+![tres](./doc/img/3.png)
+---
+
+### ⚠️ Obstáculos Dinámicos – Trampa de Púas
+
+A lo largo del nivel, el jugador debe superar distintos obstáculos que bloquean su avance. En esta sección se muestra una trampa de púas que se activa de forma intermitente: las púas emergen y se ocultan en intervalos, obligando al jugador a calcular el momento adecuado para avanzar. Si pisa las púas cuando están activas, pierde una cantidad de vida, aumentando el riesgo y la tensión en la exploración.
+
+![cuatro](./doc/img/4.png)
+---
+
+
+### 🔪 Enemigo Giratorio
+
+Este enemigo se desplaza girando constantemente mientras sostiene un cuchillo afilado, convirtiéndose en una amenaza móvil dentro del nivel. Si el jugador entra en contacto con el arma durante el giro, recibe daño y pierde parte de su vida, obligándolo a calcular bien sus movimientos y el momento adecuado para acercarse o esquivar.
+
+![cinco](./doc/img/5.png)
+---
+
+### 🌪️ Troncos Giratorios
+
+En esta sección del nivel aparecen troncos giratorios que bloquean el paso del jugador. Su movimiento constante obliga a calcular el momento exacto para saltar y atravesarlos con seguridad. Si el jugador entra en contacto con ellos, pierde cierta cantidad devida, convirtiendo este obstáculo en un desafío de precisión y sincronización.
+
+![seis](./doc/img/6.png)
+---
+
+### ⚔️ Enemigo de Doble Filo
+
+Este enemigo gira constantemente mientras sostiene dos cuchillas afiladas, ampliando su zona de peligro y dificultando el paso. Si el jugador entra en contacto con cualquiera de los filos, pierde una cantidad de vida, lo que exige mayor precisión al momento de esquivar y avanzar.
+
+![siete](./doc/img/7.png)
+---
+
+### 🚀 Plataforma Saltarina
+
+Tras superar los enemigos anteriores, el jugador llega a una nueva zona donde encuentra una plataforma saltarina que lo impulsa automáticamente de un punto a otro. Este elemento es esencial para continuar al siguiente nivel, ya que sin utilizarlo no es posible alcanzar la siguiente área del escenario.
+
+![ocho](./doc/img/8.png)
+---
+
+### ⚙️ Obstáculos Mecánicos – Cuchillas y Martillos
+
+En esta zona aparecen dos tipos de amenazas. La primera consiste en cuchillas circulares que giran constantemente mientras se desplazan de izquierda a derecha, obligando al jugador a calcular con precisión el momento para avanzar, ya que cualquier contacto provoca pérdida de vida. La segunda son grandes martillos oscilantes que bloquean el camino; si golpean al jugador, lo empujan en la dirección del impacto, aumentando el riesgo de caer o recibir más daño.
+
+![nueve](./doc/img/9.png)
+---
+
+### 🏁 Desafío Final – Plataformas y Planchas Móviles
+
+🏁 Desafío Final – Plataformas y Planchas Móviles
+
+Antes de llegar a la meta, el jugador debe superar una plataforma que se mueve verticalmente, donde una caída implica reiniciar la vida. Tras ello, enfrenta el último obstáculo: dos grandes planchas que se desplazan en direcciones opuestas y también paralelas, cerrándose con fuerza al encontrarse. Si el jugador queda atrapado entre ellas, es aplastado y pierde vida, convirtiendo este tramo final en una prueba de precisión y sincronización.
+
+![diez](./doc/img/10.png)
+---
+
+### 🟢 Pantalla de Victoria
+
+Al alcanzar la meta, aparece una ventana verde translúcida que indica que el jugador ha completado el nivel con éxito. Este mensaje confirma que logró superar todos los obstáculos y enemigos del recorrido, marcando el final del desafío.
+
+![once](./doc/img/13.png)
+---
+
+### ⏸️ Sistema de Pausa
+
+El jugador puede pausar el juego presionando la tecla P, lo que muestra una pantalla translúcida de tono morado y detiene completamente la acción. Esta función permite hacer una pausa estratégica en cualquier momento sin perder el progreso actual.
+
+![doce](./doc/img/14.png)
+---
+
+### 🔴 Sistema de Daño y Feedback Visual
+
+En todos los niveles aparecen enemigos que atacan cuando el jugador se acerca a cierta distancia. Al recibir daño, la vida se reduce según la fuerza del enemigo y se activa un efecto visual con una pantalla semi-transparente roja junto a un sonido de impacto, reforzando la sensación de peligro y alerta durante el combate.
+
+![trece](./doc/img/15.png)
+---
+
 
 ## 📚 Progreso actual
 
@@ -578,8 +707,13 @@ Implementación de un sistema de Inverse Kinematics para las manos del personaje
 
 
 ## 🛠️ Tecnologías utilizadas
-- Unity
-- C#
-- Input Manager (Mouse X / Mouse Y)
 
----
+- Unity (3D)
+- C#
+- CharacterController
+- NavMesh & NavMeshAgent
+- Unity UI System
+- Animation & Blend Trees
+- Animation Rigging (IK)
+- Particle System
+- Audio System
